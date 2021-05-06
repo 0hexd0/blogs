@@ -1,17 +1,37 @@
 <template>
   <div class="pure-g">
-    <div class="pure-u-1-6"></div>
-    <div class="pure-u-5-6">
+    <div class="pure-u-1-8"></div>
+    <div class="pure-u-3-4">
       <div v-html="content"></div>
     </div>
-    <div class="pure-u-1-6"></div>
+    <div class="pure-u-1-8"></div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from "vue";
+import { defineComponent } from "vue";
 import { apis } from "Apis/index";
 import marked from "marked";
+import hljs from "highlight.js";
+
+// Set options
+// `highlight` example uses `highlight.js`
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  highlight: function (code: string, lang: string, callback: any) {
+    console.log("lang", lang);
+    return hljs.highlight(lang, code).value;
+  },
+  langPrefix: "hljs ",
+  pedantic: false,
+  gfm: true,
+  tables: true,
+  breaks: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false,
+  xhtml: false,
+});
 
 export default defineComponent({
   components: {},

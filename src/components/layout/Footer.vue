@@ -1,5 +1,6 @@
 <template>
-  <div>版权所有</div>
+  <div></div>
+  <!-- <div>版权所有</div> -->
 </template>
 
 <script lang="ts">
