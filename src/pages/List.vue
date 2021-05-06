@@ -58,6 +58,7 @@ ul {
     cursor: pointer;
     color: #777;
     list-style: none;
+    font-size: 18px;
     &:hover {
       color: #f7b267;
     }
