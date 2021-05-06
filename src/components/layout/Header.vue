@@ -47,7 +47,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .custom-wrapper {
-  background-color: #ffd390;
+  background-color: #f7b267;
   margin-bottom: 1em;
   -webkit-font-smoothing: antialiased;
   height: 2.1em;
