@@ -1,18 +1,21 @@
 <template>
   <div class="custom-wrapper pure-g" id="menu">
-    <div class="pure-u-1-3">
+    <div class="pure-u-1-4">
       <div class="pure-menu">
-        <a @click="goHeader" class="pure-menu-heading brand">Blog</a>
+        <a @click="goHeader" class="pure-menu-heading brand">Blogs</a>
       </div>
     </div>
-    <div class="pure-u-2-3">
+    <div class="pure-u-3-4">
       <div class="pure-menu pure-menu-horizontal custom-can-transform">
         <ul class="pure-menu-list">
-          <li @click="goHeader" class="pure-menu-item">
-            <a class="pure-menu-link">首页</a>
-          </li>
-          <li @click="goDetail" class="pure-menu-item">
+          <li @click="goList('frontend')" class="pure-menu-item">
             <a class="pure-menu-link">前端</a>
+          </li>
+          <li @click="goList('computer')" class="pure-menu-item">
+            <a class="pure-menu-link">计算机</a>
+          </li>
+          <li @click="goList('math')" class="pure-menu-item">
+            <a class="pure-menu-link">数学</a>
           </li>
         </ul>
       </div>
@@ -30,11 +33,11 @@ export default defineComponent({
         name: "home-page",
       });
     },
-    goDetail() {
+    goList(type: string) {
       this.$router.push({
-        name: "detail-page",
+        name: "list-page",
         params: {
-          name: "demo",
+          type,
         },
       });
     },

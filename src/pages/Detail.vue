@@ -19,7 +19,6 @@ import hljs from "highlight.js";
 marked.setOptions({
   renderer: new marked.Renderer(),
   highlight: function (code: string, lang: string, callback: any) {
-    console.log("lang", lang);
     return hljs.highlight(lang, code).value;
   },
   langPrefix: "hljs ",
