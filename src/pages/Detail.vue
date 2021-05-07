@@ -14,6 +14,7 @@ import { apis } from "Apis/index";
 import marked from "marked";
 import hljs from "highlight.js";
 import katex from "katex";
+import name from "emoji-name-map";
 
 // Set options
 // `highlight` example uses `highlight.js`
@@ -36,13 +37,21 @@ marked.setOptions({
 const tokenizer = {
   codespan(src: string) {
     // const match = src.match(/\$\$([^\$\n]+?)\$\$/);
-    const match = src.match(/\$\$(.+?)\$\$/);
-    if (match) {
-      console.log("match[0]", match[0].trim());
+    const mathMatch = src.match(/\$\$(.+?)\$\$/);
+    const emojiMatch = src.match(/\:(.+?)\:/);
+    if (mathMatch) {
+      console.log("mathMatch[0]", mathMatch[0].trim());
       return {
         type: "text",
-        raw: match[0],
-        text: katex.renderToString(match[1].trim()),
+        raw: mathMatch[0],
+        text: katex.renderToString(mathMatch[1].trim()),
+      };
+    } else if (emojiMatch) {
+      console.log("emojiMatch[0]", emojiMatch[1].trim());
+      return {
+        type: "text",
+        raw: emojiMatch[0],
+        text: name.get(emojiMatch[1].trim()),
       };
     }
 
