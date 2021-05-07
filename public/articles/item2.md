@@ -1,20 +1,27 @@
 # das
 
-$$E=mc^2$$
+$$if E=mc^2 \\ then$$
 
-Inline $$E=mc^2$$ Inline，Inline $$E=mc^2$$ Inline。
+$$Inline$$E=mc^2 E=mc^2$$ Inline。
 
 $$(\sqrt{3x-1}+(1+x)^2)$$
-                    
+
 $$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
 
 # H1 header
+
 ## H2 header
+
 ### H3 header
+
 #### H4 header
+
 ##### H5 header
+
 ###### H6 header
+
 # Heading 1 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+
 ## Heading 2 link [Heading link](https://github.com/pandao/editor.md "Heading link")
 
 ### Blockquotes

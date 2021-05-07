@@ -21,7 +21,7 @@ import name from "emoji-name-map";
 marked.setOptions({
   renderer: new marked.Renderer(),
   highlight: function (code: string, lang: string, callback: any) {
-    return hljs.highlight(lang, code).value;
+    return hljs.highlight(code, { language: lang }).value;
   },
   langPrefix: "hljs ",
   pedantic: false,
@@ -35,11 +35,12 @@ marked.setOptions({
 
 // Override function
 const tokenizer = {
-  codespan(src: string) {
+  inlineText(src: string, inRawBlock: boolean, smartypants: any) {
     // const match = src.match(/\$\$([^\$\n]+?)\$\$/);
-    const mathMatch = src.match(/\$\$(.+?)\$\$/);
-    const emojiMatch = src.match(/\:(.+?)\:/);
+    const mathMatch = src.match(/\$\$([^\$\n]+?)\$\$/);
+    const emojiMatch = src.match(/\:([^\:]+?)\:/);
     if (mathMatch) {
+      console.log("inRawBlock", inRawBlock);
       console.log("mathMatch[0]", mathMatch[0].trim());
       return {
         type: "text",
@@ -47,7 +48,7 @@ const tokenizer = {
         text: katex.renderToString(mathMatch[1].trim()),
       };
     } else if (emojiMatch) {
-      console.log("emojiMatch[0]", emojiMatch[1].trim());
+      console.log("emojiMatch[0]", emojiMatch[0].trim());
       return {
         type: "text",
         raw: emojiMatch[0],
