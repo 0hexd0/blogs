@@ -4,7 +4,7 @@
     <div class="pure-u-3-4">
       <ul>
         <li @click="goDetail(item)" v-for="(item, idx) in list" :key="idx">
-          {{ item.name }}
+          {{ item.title }}
         </li>
       </ul>
     </div>

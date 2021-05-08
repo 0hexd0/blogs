@@ -9,11 +9,13 @@ enum Type {
 const list = [
     {
         type: Type.frontend,
-        name: 'item1'
+        name: 'item1',
+        title: 'item1'
     },
     {
         type: Type.computer,
-        name: 'item2'
+        name: 'item2',
+        title: 'item2'
     },
     {
         type: Type.math,
@@ -21,7 +23,13 @@ const list = [
     },
     {
         type: Type.frontend,
-        name: 'item4'
+        name: 'item4',
+        title: 'item4'
+    },
+    {
+        type: Type.frontend,
+        name: 'user-info',
+        title: '用户数据收集与分析'
     }
 ];
 
