@@ -19,6 +19,6 @@ List数量任意，类型相同的元素集合
         | [] -> "Ocaml"
         ;;
     my_favorite_language ["aa"; "bb"; "cc"];;
+    
 
 ```
-
