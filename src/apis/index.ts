@@ -30,6 +30,11 @@ const list = [
         type: Type.frontend,
         name: 'user-info',
         title: '用户数据收集与分析'
+    },
+    {
+        type: Type.computer,
+        name: 'ocaml',
+        title: 'Ocaml'
     }
 ];
 
