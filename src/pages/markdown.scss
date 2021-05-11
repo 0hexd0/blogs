@@ -1,0 +1,59 @@
+/* for md  */
+/** 注意：独立的scss文件内的嵌套层级无法正常编译 */
+
+#md-content img {
+  max-width: 100%;
+}
+
+#md-content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  margin: 1em 0;
+}
+
+#md-content code {
+  border: 1px solid #bbb;
+  border-radius: 2px;
+}
+
+#md-content code.hljs {
+  font-size: 15px;
+}
+
+#md-content blockquote {
+  color: #666;
+  border-left: 4px solid #ddd;
+  padding-left: 20px;
+  margin-left: 0;
+  font-style: italic;
+}
+
+#md-content code {
+  border: 1px solid #ddd;
+  background: #f6f6f6;
+  padding: 3px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+#md-content thead tr {
+  background-color: #f8f8f8;
+}
+
+#md-content tbody tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+#md-content th {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+#md-content td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}

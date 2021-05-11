@@ -7,6 +7,11 @@ enum Type {
 }
 
 const list = [
+    { 
+      type: Type.frontend,
+      name: 'jointjs',
+      title: 'jointjs使用说明'
+    },
     {
         type: Type.frontend,
         name: 'item1',
