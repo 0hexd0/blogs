@@ -3,7 +3,7 @@
     <div class="pure-u-1-8"></div>
     <div class="pure-u-3-4">
       <ul>
-        <li @click="goDetail(item)" v-for="(item, idx) in list" :key="idx">
+        <li @click="goDetail(item)" v-for="item in list" :key="item.name">
           {{ item.title }}
         </li>
       </ul>
@@ -19,7 +19,7 @@ import { apis } from "Apis/index";
 export default defineComponent({
   data() {
     return {
-      list: [],
+      list: [] as any[],
     };
   },
   methods: {
