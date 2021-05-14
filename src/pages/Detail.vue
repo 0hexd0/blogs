@@ -12,7 +12,6 @@
 import { defineComponent } from "vue";
 import { apis } from "Apis/index";
 import marked from "marked";
-import hljs from "highlight.js";
 import katex from "katex";
 
 // Set options

@@ -24,5 +24,23 @@ export default defineConfig({
         replacement: resolve(__dirname, './src/apis')
       }
     ]
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (moduleID) => {
+          if (moduleID.includes('node_modules')) {
+            const packageName = moduleID.match(/node_modules\/([^/]+)/)[1];
+            return packageName;
+          } else {
+            return 'main';
+          }
+        },
+        globals: {
+          highlight: 'hljs'
+        }
+      },
+      external: ["highlight"],
+    },
   }
 })

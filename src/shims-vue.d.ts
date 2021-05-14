@@ -5,3 +5,5 @@ declare module '*.vue' {
 }
 
 declare module 'emoji-name-map'
+
+declare var hljs: any
