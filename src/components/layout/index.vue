@@ -1,6 +1,8 @@
 <template>
   <Header></Header>
-  <router-view></router-view>
+  <section class="main">
+    <router-view></router-view>
+  </section>
   <Footer></Footer>
 </template>
 
@@ -17,5 +19,8 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss" scoped>
+.main {
+  min-height: calc(100vh - 118px - 3.1em);
+}
 </style>

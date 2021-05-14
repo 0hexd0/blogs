@@ -2,7 +2,7 @@
   <div class="custom-wrapper pure-g" id="menu">
     <div class="pure-u-1-4">
       <div class="pure-menu">
-        <a @click="goHeader" class="pure-menu-heading brand">Blogs</a>
+        <a @click="goHeader" class="pure-menu-heading brand">码无止境</a>
       </div>
     </div>
     <div class="pure-u-3-4">
