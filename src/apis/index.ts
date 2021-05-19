@@ -7,29 +7,15 @@ enum Type {
 }
 
 const list = [
-    { 
-      type: Type.frontend,
-      name: 'jointjs',
-      title: 'jointjs使用说明'
-    },
     {
         type: Type.frontend,
-        name: 'item1',
-        title: 'item1'
+        name: 'jointjs',
+        title: 'jointjs使用说明'
     },
     {
         type: Type.computer,
-        name: 'item2',
-        title: 'item2'
-    },
-    {
-        type: Type.math,
-        name: 'item3'
-    },
-    {
-        type: Type.frontend,
-        name: 'item4',
-        title: 'item4'
+        name: 'md-demo',
+        title: 'md使用说明'
     },
     {
         type: Type.frontend,
@@ -39,7 +25,7 @@ const list = [
     {
         type: Type.computer,
         name: 'ocaml',
-        title: 'Ocaml'
+        title: 'ocaml使用说明'
     }
 ];
 
