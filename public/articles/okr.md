@@ -10,11 +10,11 @@
 
 ### 博客
 
-- 每周1篇原创
-- 每周1篇翻译
+- 3篇原创
+- 3篇翻译
 
 ### 学习计划
 
-- 每日一道leetcode算法题
+- 每日1道leetcode算法题
 - 读完《微积分入门》
 - 读完 [OSTEP](https://pages.cs.wisc.edu/~remzi/OSTEP)
