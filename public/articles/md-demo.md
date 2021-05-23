@@ -1,8 +1,6 @@
-# das
+# Math
 
 $$if E=mc^2 \\ then$$
-
-$$Inline$$E=mc^2 E=mc^2$$ Inline。
 
 $$(\sqrt{3x-1}+(1+x)^2)$$
 

@@ -17,6 +17,9 @@
           <li @click="goList('math')" class="pure-menu-item">
             <a class="pure-menu-link">数学</a>
           </li>
+          <li @click="goList('okr')" class="pure-menu-item">
+            <a class="pure-menu-link">OKR</a>
+          </li>
         </ul>
       </div>
     </div>
