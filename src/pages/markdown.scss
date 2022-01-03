@@ -1,6 +1,14 @@
 /* for md  */
 /** 注意：独立的scss文件内的嵌套层级无法正常编译 */
 
+#md-content p {
+  line-height: 1.5em;
+}
+
+#md-content blockquote {
+  line-height: 1.5em;
+}
+
 #md-content img {
   max-width: 100%;
 }
@@ -60,4 +68,5 @@
 
 #md-content li {
   margin-bottom: 12px;
+  line-height: 1.5em;
 }

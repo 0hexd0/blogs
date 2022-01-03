@@ -69,6 +69,11 @@ export default defineComponent({
   mounted() {
     this.loadData(this.$route.params?.name as string);
   },
+  watch: {
+    "$route.params.name"(val: string) {
+      this.loadData(val);
+    },
+  },
 });
 </script>
 

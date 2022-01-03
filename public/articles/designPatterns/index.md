@@ -101,7 +101,7 @@ interface IAlive {
 - 高层类定义好接口，自身的实现依赖于定义的接口；同时底层类的实现也依赖高层类的接口。
 - 由于这种设计，高层类可以使用任何实现了接口的底层类，这样就可以实现**依赖注入**。
 
-![依赖反转原则](../images/designPatterns/Dependency_inversion.png)
+![依赖反转原则](../../images/designPatterns/Dependency_inversion.png)
 
 ### 依赖注入
 
@@ -111,13 +111,15 @@ interface IAlive {
 
 ## 23 种设计模式
 
-![23种设计模式](../images/designPatterns/23.svg)
+![23种设计模式](../../images/designPatterns/23.svg)
 
 ### 抽象工厂
 
 > “工厂”是创建产品（对象）的地方，其目的是将产品的创建与产品的使用分离。抽象工厂模式的目的，是将若干抽象产品的接口与不同主题产品的具体实现分离开。这样就能在增加新的具体工厂的时候，不用修改引用抽象工厂的客户端代码。
 
-![抽象工厂](../images/designPatterns/Abstract_factory.png)
+![抽象工厂](../../images/designPatterns/Abstract_factory.png)
+
+<a href="/#/detail/designPatterns%2FabstractFactory" target="_blank" >示例代码</a>
 
 ### 生成器模式
 
@@ -127,25 +129,25 @@ interface IAlive {
 
 > 工厂对象通常包含一个或多个方法，用来创建这个工厂所能创建的各种类型的对象。这些方法可能接收参数，用来指定对象创建的方式，最后返回创建的对象。
 
-![工厂方法](../images/designPatterns/FactoryMethod.svg)
+![工厂方法](../../images/designPatterns/FactoryMethod.svg)
 
 ### 原型模式
 
 > 特点在于通过“复制”一个已经存在的实例来返回新的实例,而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的。
 
-![原型模式](../images/designPatterns/Prototype.svg)
+![原型模式](../../images/designPatterns/Prototype.svg)
 
 ### 适配器模式
 
 > 有时候也称包装样式或者包装。将一个类的接口转接成用户所期待的。一个适配使得因接口不兼容而不能在一起工作的类能在一起工作，做法是将类自己的接口包裹在一个已存在的类中。
 
-![适配器模式](../images/designPatterns/ObjectAdapter.png)
+![适配器模式](../../images/designPatterns/ObjectAdapter.png)
 
 ### 桥接模式
 
 > 桥接模式是软件设计模式中最复杂的模式之一，它把事物对象和其具体行为、具体特征分离开来，使它们可以各自独立的变化。
 
-![桥接模式](../images/designPatterns/Bridge.svg)
+![桥接模式](../../images/designPatterns/Bridge.svg)
 
 ### 组合模式
 
@@ -155,19 +157,19 @@ interface IAlive {
 
 - 让组合对象和单个对象看起来一样（使用同样的接口调用）
 
-![组合模式](../images/designPatterns/Composite.svg)
+![组合模式](../../images/designPatterns/Composite.svg)
 
 ### 装饰模式
 
 > 装饰模式，一种动态地往一个类别中添加新的行为的设计模式
 
-![装饰模式](../images/designPatterns/Decorator.svg)
+![装饰模式](../../images/designPatterns/Decorator.svg)
 
 ### 外观模式
 
 > 外观模为为子系统中的一组界面提供一个统一的高层界面，使得子系统更容易使用
 
-![外观模式](../images/designPatterns/Facade.svg)
+![外观模式](../../images/designPatterns/Facade.svg)
 
 ### 享元模式
 
@@ -177,13 +179,13 @@ interface IAlive {
 
 > a proxy is a wrapper or agent object that is being called by the client to access the real serving object behind the scenes. Use of the proxy can simply be forwarding to the real object, or can provide additional logic.
 
-![代理模式](../images/designPatterns/Proxy.svg)
+![代理模式](../../images/designPatterns/Proxy.svg)
 
 ### 责任链模式
 
 > 责任链包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。该模式还描述了往该处理链的末尾添加新的处理对象的方法。
 
-![责任链模式](../images/designPatterns/Chain_of_Responsibility.jpg)
+![责任链模式](../../images/designPatterns/Chain_of_Responsibility.jpg)
 
 ### 命令模式
 

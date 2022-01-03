@@ -10,7 +10,7 @@ enum Type {
 const list = [
   {
     type: Type.frontend,
-    name: "designPatterns",
+    name: "designPatterns/index",
     title: "设计模式",
   },
   // {

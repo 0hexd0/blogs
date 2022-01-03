@@ -27,7 +27,7 @@ export default defineComponent({
       this.$router.push({
         name: "detail-page",
         params: {
-          name: name,
+          name,
         },
       });
     },
