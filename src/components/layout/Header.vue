@@ -9,7 +9,7 @@
       <div class="pure-menu pure-menu-horizontal custom-can-transform">
         <ul class="pure-menu-list">
           <li @click="goList('frontend')" class="pure-menu-item">
-            <a class="pure-menu-link">前端1</a>
+            <a class="pure-menu-link">前端</a>
           </li>
           <!-- <li @click="goList('computer')" class="pure-menu-item">
             <a class="pure-menu-link">计算机</a>
