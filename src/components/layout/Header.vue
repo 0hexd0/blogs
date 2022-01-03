@@ -11,7 +11,7 @@
           <li @click="goList('frontend')" class="pure-menu-item">
             <a class="pure-menu-link">前端</a>
           </li>
-          <li @click="goList('computer')" class="pure-menu-item">
+          <!-- <li @click="goList('computer')" class="pure-menu-item">
             <a class="pure-menu-link">计算机</a>
           </li>
           <li @click="goList('math')" class="pure-menu-item">
@@ -19,7 +19,7 @@
           </li>
           <li @click="goList('okr')" class="pure-menu-item">
             <a class="pure-menu-link">OKR</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
