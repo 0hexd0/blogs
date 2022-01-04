@@ -213,6 +213,21 @@ interface IAlive {
 
 <a href="/#/detail/designPatterns%2Fmediator" target="_blank" >示例代码</a>
 
+### 备忘录模式
+
+> The memento pattern is a software design pattern that provides the ability to restore an object to its previous state.
+
+- 备忘录模式是一种用空间换时间的常用手段
+
+<a href="/#/detail/designPatterns%2Fmemento" target="_blank" >示例代码</a>
+### 观察者模式
+
+> 在此种模式中，一个目标对象管理所有相依于它的观察者对象，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。
+
+![观察者模式](../../images/designPatterns/Observer.png)
+
+<a href="/#/detail/designPatterns%2Fobserver" target="_blank" >示例代码</a>
+
 ## 动态语言的设计模式
 
 - 动态语言无需想方设法绕开 class 的限制
