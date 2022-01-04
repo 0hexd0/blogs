@@ -207,6 +207,11 @@ interface IAlive {
 
 <a href="/#/detail/designPatterns%2Fiterator" target="_blank" >示例代码</a>
 
+
+### 中介者模式
+
+> 中介者模式定义了一个中介者对象，该对象封装了系统中对象间的交互方式。 由于它可以在运行时改变程序的行为
+
 ## 动态语言的设计模式
 
 - 动态语言无需想方设法绕开 class 的限制
