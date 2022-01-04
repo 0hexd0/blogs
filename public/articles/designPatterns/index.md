@@ -121,9 +121,9 @@ interface IAlive {
 
 <a href="/#/detail/designPatterns%2FabstractFactory" target="_blank" >示例代码</a>
 
-### 生成器模式
+### 构造器模式
 
-> 生成器模式也叫建造模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
+> 构造器模式也叫建造模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
 
 ### 工厂方法
 
@@ -136,6 +136,10 @@ interface IAlive {
 > 特点在于通过“复制”一个已经存在的实例来返回新的实例,而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的。
 
 ![原型模式](../../images/designPatterns/Prototype.svg)
+
+### 单例模式
+
+> 在应用这个模式时，单例对象的类必须保证只有一个实例存在。
 
 ### 适配器模式
 
@@ -190,6 +194,18 @@ interface IAlive {
 ### 命令模式
 
 > the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time.
+
+### 解释器模式
+
+> 指定如何对某种语言中的表达式求值
+
+### 迭代器模式
+
+> 可以让用户透过特定的接口轮流访问容器中的每一个元素而不用了解底层的实现
+
+- javascript迭代器与生成器
+
+<a href="/#/detail/designPatterns%2Fiterator" target="_blank" >示例代码</a>
 
 ## 动态语言的设计模式
 
