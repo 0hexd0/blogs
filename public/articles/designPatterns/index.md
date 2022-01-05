@@ -155,6 +155,8 @@ interface IAlive {
 
 ![适配器模式](../../images/designPatterns/ObjectAdapter.png)
 
+<a href="/#/detail/designPatterns%2Fadapter" target="_blank" >示例代码</a>
+
 ### 桥接模式
 
 > 桥接模式是软件设计模式中最复杂的模式之一，它把事物对象和其具体行为、具体特征分离开来，使它们可以各自独立的变化。
