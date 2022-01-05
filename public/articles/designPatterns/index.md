@@ -226,7 +226,34 @@ interface IAlive {
 
 ![观察者模式](../../images/designPatterns/Observer.png)
 
+- 发布订阅模式通过新增事件中心，避免了目标和观察者互相耦合
+
 <a href="/#/detail/designPatterns%2Fobserver" target="_blank" >示例代码</a>
+### 状态机模式
+
+> The state pattern is a behavioral software design pattern that allows an object to alter its behavior when its internal state changes. 
+
+- 把状态封装在调用对象之中，通过修改对象状态改变方法的行为
+
+<a href="/#/detail/designPatterns%2Fstate" target="_blank" >示例代码</a>
+
+### 策略模式
+
+> the strategy pattern (also known as the policy pattern) is a behavioral software design pattern that enables selecting an algorithm at runtime. 
+
+<a href="/#/detail/designPatterns%2Fstrategy" target="_blank" >示例代码</a>
+
+### 模板方法
+
+> 模板方法是一个定义在父类别的方法，在模板方法中会呼叫多个定义在父类别的其他方法，而这些方法有可能只是抽象方法并没有实作，模板方法仅决定这些抽象方法的执行顺序，这些抽象方法的实作由子类别负责，并且子类别不允许覆写模板方法。
+
+<a href="/#/detail/designPatterns%2Ftemplate" target="_blank" >示例代码</a>
+
+### 访问者模式
+
+> 首先我们拥有一个由许多对象构成的对象结构，这些对象的类都拥有一个accept方法用来接受访问者对象；访问者是一个接口，它拥有一个visit方法，这个方法对访问到的对象结构中不同类型的元素作出不同的反应；在对象结构的一次访问过程中，我们遍历整个对象结构，对每一个元素都实施accept方法，在每一个元素的accept方法中回调访问者的visit方法，从而使访问者得以处理对象结构的每一个元素。
+
+<a href="/#/detail/designPatterns%2Fvisitor" target="_blank" >示例代码</a>
 
 ## 动态语言的设计模式
 
