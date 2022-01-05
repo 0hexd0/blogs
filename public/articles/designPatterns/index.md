@@ -163,6 +163,8 @@ interface IAlive {
 
 ![桥接模式](../../images/designPatterns/Bridge.svg)
 
+<a href="/#/detail/designPatterns%2Fbridge" target="_blank" >示例代码</a>
+
 ### 组合模式
 
 > The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies.
