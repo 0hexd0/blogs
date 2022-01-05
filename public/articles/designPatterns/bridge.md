@@ -1,4 +1,5 @@
 ``` typescript
+// 桥接模式例子
 namespace Bridge {
   /** "Implementor" */
   interface IDrawingAPI {
