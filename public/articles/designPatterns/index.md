@@ -125,11 +125,15 @@ interface IAlive {
 
 > 构造器模式也叫建造模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
 
+<a href="/#/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
+
 ### 工厂方法
 
 > 工厂对象通常包含一个或多个方法，用来创建这个工厂所能创建的各种类型的对象。这些方法可能接收参数，用来指定对象创建的方式，最后返回创建的对象。
 
 ![工厂方法](../../images/designPatterns/FactoryMethod.svg)
+
+<a href="/#/detail/designPatterns%2Ffactory" target="_blank" >示例代码</a>
 
 ### 原型模式
 
@@ -137,9 +141,13 @@ interface IAlive {
 
 ![原型模式](../../images/designPatterns/Prototype.svg)
 
+<a href="/#/detail/designPatterns%2Fprototype" target="_blank" >示例代码</a>
+
 ### 单例模式
 
 > 在应用这个模式时，单例对象的类必须保证只有一个实例存在。
+
+<a href="/#/detail/designPatterns%2Fsingleton" target="_blank" >示例代码</a>
 
 ### 适配器模式
 
