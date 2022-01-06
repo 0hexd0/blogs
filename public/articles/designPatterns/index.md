@@ -175,11 +175,17 @@ interface IAlive {
 
 ![组合模式](../../images/designPatterns/Composite.svg)
 
+<a href="/#/detail/designPatterns%2Fcomposite" target="_blank" >示例代码</a>
+
 ### 装饰模式
 
 > 装饰模式，一种动态地往一个类别中添加新的行为的设计模式
 
+- javascript装饰器提案进展 https://github.com/tc39/proposal-decorators
+
 ![装饰模式](../../images/designPatterns/Decorator.svg)
+
+<a href="/#/detail/designPatterns%2Fdecorator" target="_blank" >示例代码</a>
 
 ### 外观模式
 
@@ -187,9 +193,13 @@ interface IAlive {
 
 ![外观模式](../../images/designPatterns/Facade.svg)
 
+<a href="/#/detail/designPatterns%2Ffacade" target="_blank" >示例代码</a>
+
 ### 享元模式
 
 > 通常物件中的部分状态(state)能够共享。常见做法是把它们放在数据结构外部，当需要使用时再将它们传递给享元。
+
+<a href="/#/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
 
 ### 代理模式
 
@@ -197,15 +207,21 @@ interface IAlive {
 
 ![代理模式](../../images/designPatterns/Proxy.svg)
 
+<a href="/#/detail/designPatterns%2Fproxy" target="_blank" >示例代码</a>
+
 ### 责任链模式
 
 > 责任链包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。该模式还描述了往该处理链的末尾添加新的处理对象的方法。
 
 ![责任链模式](../../images/designPatterns/Chain_of_Responsibility.jpg)
 
+<a href="/#/detail/designPatterns%2FchainOfResponsibility" target="_blank" >示例代码</a>
+
 ### 命令模式
 
 > the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time.
+
+<a href="/#/detail/designPatterns%2Fcommand" target="_blank" >示例代码</a>
 
 ### 解释器模式
 
