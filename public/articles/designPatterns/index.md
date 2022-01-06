@@ -131,6 +131,8 @@ interface IAlive {
 
 > 工厂对象通常包含一个或多个方法，用来创建这个工厂所能创建的各种类型的对象。这些方法可能接收参数，用来指定对象创建的方式，最后返回创建的对象。
 
+- 对象的使用者把对象的创建过程委托给“工厂”，在编程时只依赖工厂接口，至于最终如何实例化对象，取决于使用的具体工厂和构建时传参
+
 ![工厂方法](../../images/designPatterns/FactoryMethod.svg)
 
 <a href="/#/detail/designPatterns%2Ffactory" target="_blank" >示例代码</a>
