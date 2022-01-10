@@ -151,6 +151,51 @@ interface IAlive {
 
 <a href="/#/detail/designPatterns%2Fsingleton" target="_blank" >示例代码</a>
 
+#### 能否直接使用全局变量保存单例？
+
+- 当然可以，不过全局变量存在很多问题，它很容易造成命名空间污染
+- 使用闭包防止变量泄漏
+- 使用命名空间防止冲突
+
+#### 前端有单例模式的应用场景吗？
+
+- 全局性的dom只保留一个实例，比如全局dialog
+
+``` javascript
+var myApp = {} // 使用命名空间
+
+myApp.createLoginLayer = (function () {
+  var div;
+  return function () {
+    if (!div) {
+      div = document.createElement("div");
+      div.innerHTML = "我是登录浮窗";
+      div.style.display = "none";
+      document.body.appendChild(div);
+    }
+    return div;
+  };
+})();
+```
+
+- 如果某些接口只被调用一次（比如权限、菜单、配置），可以结合Promise封装一些惰性接口
+``` javascript
+const readonly disposableApis = {} // 使用命名空间
+
+myApp.getPermissions = (function () {
+  var permissions;
+  return function () {
+    if (!permissions) {
+        return fetch('***.com')
+    }
+    return Promise.resolve(permissions);
+  };
+})();
+
+export {
+    disposableApis: Object.freeze(disposableApis)
+}
+```
 ### 适配器模式
 
 > 有时候也称包装样式或者包装。将一个类的接口转接成用户所期待的。一个适配使得因接口不兼容而不能在一起工作的类能在一起工作，做法是将类自己的接口包裹在一个已存在的类中。
