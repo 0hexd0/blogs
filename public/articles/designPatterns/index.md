@@ -178,23 +178,42 @@ myApp.createLoginLayer = (function () {
 })();
 ```
 
-- 如果某些接口只被调用一次（比如权限、菜单、配置），可以结合Promise封装一些惰性接口
-``` javascript
-const readonly disposableApis = {} // 使用命名空间
-
-myApp.getPermissions = (function () {
-  var permissions;
-  return function () {
+- 如果某些接口只被调用一次（比如用户信息、菜单、配置项），可以结合Promise封装一些惰性且带缓存的接口
+``` typescript
+namespace DisposableApis {
+  let permissions: [] | null = null;
+  export async function getPermissions() {
     if (!permissions) {
-        return fetch('***.com')
+      const res = await fetch('https://***.com/user', {
+        credentials: "include",
+      })
+      permissions = await res.json();
+      return permissions
+    } else {
+      return Promise.resolve(permissions);
     }
-    return Promise.resolve(permissions);
   };
-})();
-
-export {
-    disposableApis: Object.freeze(disposableApis)
 }
+
+function getUserInfo() {
+  DisposableApis.getPermissions().then(
+    userInfo => {
+      console.log('userInfo', userInfo)
+    }
+  )
+}
+
+getUserInfo()
+
+setTimeout(
+  getUserInfo, 1000
+)
+setTimeout(
+  getUserInfo, 2000
+)
+setTimeout(
+  getUserInfo, 3000
+)
 ```
 ### 适配器模式
 
