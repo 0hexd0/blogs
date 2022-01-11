@@ -308,7 +308,9 @@ console.log("age2", age2);
 
 > 装饰模式，一种动态地往一个类别中添加新的行为的设计模式
 
-- javascript装饰器提案进展 https://github.com/tc39/proposal-decorators
+- Javascript装饰器提案正处于stage-2草案阶段
+  
+> A first version of what will be in the specification. At this point, an eventual inclusion of the feature in the standard is likely.
 
 ![装饰模式](../../images/designPatterns/Decorator.svg)
 
@@ -416,8 +418,9 @@ console.log("age2", age2);
 
 ## 动态语言的设计模式
 
+> 23 种设计模式中的 16 种已经内置在语言之中，或者不复存在
+
 - 动态语言无需想方设法绕开 class 的限制
-- 23 种设计模式中的 16 种已经内置在语言之中，或者不复存在
 
 ## 参考资料
 
@@ -426,3 +429,5 @@ console.log("age2", age2);
 3. 《Javascript设计模式与开发实践》，本文参考了书中的部分代码。
 4. [Typescript演练场](https://www.typescriptlang.org/zh/play)，一个在线的typescript编译执行环境，本文部分代码在此调试。
 5. [桥接模式](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319266943009)，廖雪峰老师关于桥接的描述，十分易于理解，有参考。
+6. [javascript装饰器提案进展](https://github.com/tc39/proposal-decorators)
+7. [typescript装饰器](https://www.tslang.cn/docs/handbook/decorators.html)
