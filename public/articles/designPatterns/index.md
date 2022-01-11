@@ -115,14 +115,6 @@ interface IAlive {
 
 ![23种设计模式](../../images/designPatterns/23.svg)
 
-### 抽象工厂
-
-> “工厂”是创建产品（对象）的地方，其目的是将产品的创建与产品的使用分离。抽象工厂模式的目的，是将若干抽象产品的接口与不同主题产品的具体实现分离开。这样就能在增加新的具体工厂的时候，不用修改引用抽象工厂的客户端代码。
-
-![抽象工厂](../../images/designPatterns/Abstract_factory.png)
-
-<a href="/#/detail/designPatterns%2FabstractFactory" target="_blank" >示例代码</a>
-
 ### 构造器模式
 
 > 构造器模式也叫建造模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
@@ -135,13 +127,27 @@ interface IAlive {
 
 - 对象的使用者把对象的创建过程委托给“工厂”，在编程时只依赖工厂接口，至于最终如何实例化对象，取决于使用的具体工厂和构建时传参
 
+- 现代前端日常业务开发过程中往往操作更多的数据，很少操作dom，如果是jQuery时代倒是可以使用UI工厂来创建dom
+
 ![工厂方法](../../images/designPatterns/FactoryMethod.svg)
 
 <a href="/#/detail/designPatterns%2Ffactory" target="_blank" >示例代码</a>
 
+### 抽象工厂
+
+> “工厂”是创建产品（对象）的地方，其目的是将产品的创建与产品的使用分离。抽象工厂模式的目的，是将若干抽象产品的接口与不同主题产品的具体实现分离开。这样就能在增加新的具体工厂的时候，不用修改引用抽象工厂的客户端代码。
+
+- 同工厂方法一样，抽象工厂在前端日常开发中几乎没有用武之地
+
+![抽象工厂](../../images/designPatterns/Abstract_factory.png)
+
+<a href="/#/detail/designPatterns%2FabstractFactory" target="_blank" >示例代码</a>
+
 ### 原型模式
 
 > 特点在于通过“复制”一个已经存在的实例来返回新的实例,而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的。
+
+- 原型模式已经深深根植于Javascript语言之中，前端日常开发无时无刻不在使用原型模式，几乎所有对象都是从Object对象复制而来。
 
 ![原型模式](../../images/designPatterns/Prototype.svg)
 
@@ -223,6 +229,54 @@ setTimeout(
 > 有时候也称包装样式或者包装。将一个类的接口转接成用户所期待的。一个适配使得因接口不兼容而不能在一起工作的类能在一起工作，做法是将类自己的接口包裹在一个已存在的类中。
 
 ![适配器模式](../../images/designPatterns/ObjectAdapter.png)
+
+- Javascript没有类型约束，可以通过复制和修改对象来完成适配。
+
+``` javascript
+// 计算总年龄
+function getTotalAge(persons) {
+  let age = 0;
+  persons.forEach((person) => {
+    age += person.age;
+  });
+  return age;
+}
+
+const persons = [
+  {
+    name: "李洛克",
+    age: 18,
+  },
+  {
+    name: "漩涡鸣人",
+    age: 19,
+  },
+];
+
+const buildings = [
+  {
+    name: "教学楼",
+    year: "12",
+  },
+  {
+    name: "食堂",
+    year: "8",
+  },
+];
+
+const age1 = getTotalAge(persons);
+console.log("age1", age1);
+
+const age2 = getTotalAge(
+  // 通过复制对象、修改属性的方式实现适配
+  buildings.map((item) => {
+    return {
+      age: Number(item.year),
+    };
+  })
+);
+console.log("age2", age2);
+```
 
 <a href="/#/detail/designPatterns%2Fadapter" target="_blank" >示例代码</a>
 
