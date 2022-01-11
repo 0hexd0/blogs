@@ -108,6 +108,8 @@ interface IAlive {
 > 依赖注入形式下，调用方不再直接使用**依赖**，取而代之是**注入** 。**注入**是指将**依赖**传递给调用方的过程。在**注入**之后，调用方才会调用该**依赖**。
 
 - 依赖注入带来的额外好处是**将类实例化的过程解耦**
+  
+<a href="/#/detail/designPatterns%2Fioc" target="_blank" >示例代码</a>
 
 ## 23 种设计模式
 
@@ -179,6 +181,7 @@ myApp.createLoginLayer = (function () {
 ```
 
 - 如果某些接口只被调用一次（比如用户信息、菜单、配置项），可以结合Promise封装一些惰性且带缓存的接口
+  
 ``` typescript
 namespace DisposableApis {
   let permissions: [] | null = null;
@@ -264,6 +267,8 @@ setTimeout(
 ### 享元模式
 
 > 通常物件中的部分状态(state)能够共享。常见做法是把它们放在数据结构外部，当需要使用时再将它们传递给享元。
+
+#### vuex是否应用了享元模式？
 
 <a href="/#/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
 
@@ -356,8 +361,10 @@ setTimeout(
 - 动态语言无需想方设法绕开 class 的限制
 - 23 种设计模式中的 16 种已经内置在语言之中，或者不复存在
 
-## 反对观点
+## 参考资料
 
-## 参考链接
+1. [维基百科](https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%8F%AF%E5%A4%8D%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9F%BA%E7%A1%80)，本文大部分文字引用和部分代码都是摘抄自此站点。
+2. [InversifyJS](https://inversify.io/)，最流行的TypeScript控制反转框架，本文参考了该站点部分代码。
+3. 《Javascript设计模式与开发实践》，本文参考了书中的部分代码。
+4. [Typescript演练场](https://www.typescriptlang.org/zh/play)，一个在线的typescript编译执行环境，本文部分代码在此调试。
 
-http://www.yinwang.org/blog-cn/2015/04/03/paradigms
