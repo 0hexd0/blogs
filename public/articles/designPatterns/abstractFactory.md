@@ -44,7 +44,7 @@ class MacFactory extends AbstractFactory {
   }
 }
 
-class WinFactory {
+class WinFactory extends AbstractFactory {
   createButton(): Button {
     return new WinButton()
   }
@@ -64,7 +64,7 @@ class OS {
   }
 }
 
-OS.start(new MacFactory()) // 启动windows操作系统
+OS.start(new WinFactory()) // 启动windows操作系统
 
 // 为什么抽象工厂使用抽象类而不是接口
 
