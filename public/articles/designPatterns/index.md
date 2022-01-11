@@ -284,6 +284,10 @@ console.log("age2", age2);
 
 > 桥接模式是软件设计模式中最复杂的模式之一，它把事物对象和其具体行为、具体特征分离开来，使它们可以各自独立的变化。
 
+> 桥接模式就是为了避免直接继承带来的子类爆炸。
+
+- 由于Javascript中不存在类型，当然也不需要桥接模式。
+
 ![桥接模式](../../images/designPatterns/Bridge.svg)
 
 <a href="/#/detail/designPatterns%2Fbridge" target="_blank" >示例代码</a>
@@ -421,4 +425,4 @@ console.log("age2", age2);
 2. [InversifyJS](https://inversify.io/)，最流行的TypeScript控制反转框架，本文参考了该站点部分代码。
 3. 《Javascript设计模式与开发实践》，本文参考了书中的部分代码。
 4. [Typescript演练场](https://www.typescriptlang.org/zh/play)，一个在线的typescript编译执行环境，本文部分代码在此调试。
-
+5. [桥接模式](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319266943009)，廖雪峰老师关于桥接的描述，十分易于理解，有参考。
