@@ -11,7 +11,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { apis } from "Apis/index";
-import marked from "marked";
+import { marked } from 'marked';
 import katex from "katex";
 
 // Set options
