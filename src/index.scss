@@ -1,12 +1,24 @@
 @import url("purecss/build/pure.css");
 @import url("katex/dist/katex.css");
-@import url("../public/libs/highlight/googlecode.css");
+@import url("../public/libs/highlight/vs2015.css");
 
 .pure-g [class *= "pure-u"] {
     font-size: 18px;
     font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 
-h1, h2, h3 {
+h1,h2,h3,h4 {
     font-weight: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+h3 a {
+    font-size: 0.8em;
+    color: darkolivegreen;
+    &:hover{
+        color: darkorange;
+    }
 }

@@ -18,6 +18,10 @@
   max-width: 100%;
 }
 
+#md-content .hljs-comment, .hljs-quote {
+  font-style: initial;
+}
+
 #md-content table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -34,7 +38,7 @@
 }
 
 #md-content code.hljs {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #md-content blockquote {
@@ -46,9 +50,8 @@
 
 #md-content code {
   border: 1px solid #ddd;
-  background: #f6f6f6;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 #md-content thead tr {
