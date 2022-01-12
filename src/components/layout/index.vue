@@ -21,6 +21,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .main {
-  min-height: calc(100vh - 118px - 3.1em);
+  min-height: calc(100vh - 118px - 3.5em);
 }
 </style>
