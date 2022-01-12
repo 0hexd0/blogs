@@ -119,7 +119,17 @@ interface IAlive {
 
 ### Vue中的创建型模式
 
-在使用templat方式声明组件时，通过标签引用子组件，相当于直接组合具体类，这种写法缺少动态能力，我们可以使用动态组件技术修改部分子组件的运行时实例，但却无法修改子组件的布局方式。所以要想更好的利用创建型模式，必须使用render函数。
+在使用templat方式声明组件时，通过标签引用子组件，相当于直接组合具体类，这种写法缺少动态能力，我们可以使用动态组件技术修改部分子组件的运行时实例，但却无法修改子组件的布局方式。所以要想更好的利用创建型模式，需要使用渲染函数render或者JSX语法。
+
+``` javascript
+render: function (createElement) {
+  return createElement(MyComponent, {
+    props: {
+      someProp: 'foobar'
+    }
+  })
+}
+```
 
 ### 工厂方法 <a href="/#/detail/designPatterns%2Ffactory" target="_blank" >示例代码</a>
 
@@ -131,13 +141,97 @@ interface IAlive {
 
 #### 应用场景
 
-- 现代前端日常业务开发过程中往往操作更多的数据，很少操作dom，如果是jQuery时代倒是可以使用UI工厂来创建dom
+- 当我们用不同的参数生成不同的对象，我们就是在使用**简单工厂方法**
+- 考虑较复杂的一个场景，我们希望统一整个项目的对话框。对话框目前有两种：信息对话框和表单对话框。信息对话框只要展示提示信息，表单对话框展示表单组件。这时可以考虑工厂方法。
+
+``` typescript
+interface VueComponent {}
+
+enum MessageDialogType {
+  Warning,
+  Error,
+  Success,
+}
+
+interface IFormData {
+  [prop: string]: string | number;
+}
+
+interface IDialogCreateOptions {
+  title: string;
+}
+
+interface IFormDialogCreateOptions extends IDialogCreateOptions {
+  formComponent: VueComponent;
+  formData: IFormData;
+}
+
+interface IMessageDialogCreateOptions extends IDialogCreateOptions {
+  message: string;
+  type: MessageDialogType;
+}
+
+interface IDialogFactory {
+  createDialog(options: IDialogCreateOptions);
+}
+
+class FormDialogFactory implements IDialogFactory {
+  createElement: Function;
+  constructor(createElement: Function) {
+    this.createElement = createElement;
+  }
+
+  createDialog(options: IFormDialogCreateOptions) {
+    return this.createElement("div", {
+      props: {
+        formData: options.formData,
+      },
+    });
+  }
+}
+
+class MessageDialogFactory implements IDialogFactory {
+  createElement: Function;
+  constructor(createElement: Function) {
+    this.createElement = createElement;
+  }
+
+  createDialog(options: IMessageDialogCreateOptions) {
+    return this.createElement("div", {
+      props: {
+        message: options.message,
+      },
+    });
+  }
+}
+
+// 父组件如何使用Dialog工厂
+function render(createElement) {
+  // 创建提示对话框
+  const messageDialogFactory = new MessageDialogFactory(createElement);
+  messageDialogFactory.createDialog({
+    title: "温馨提示",
+    type: MessageDialogType.Warning,
+    message: "您没有权限！",
+  });
+
+  // 创建表单对话框
+  const formComponent: VueComponent = {}; // 表单组件
+  const formDialogFactory = new FormDialogFactory(createElement);
+  formDialogFactory.createDialog({
+    title: "编辑用户信息",
+    formComponent,
+    formData: {
+      username: "",
+      age: 18,
+    },
+  });
+}
+```
 
 ### 抽象工厂 <a href="/#/detail/designPatterns%2FabstractFactory" target="_blank" >示例代码</a>
 
 > “工厂”是创建产品（对象）的地方，其目的是将产品的创建与产品的使用分离。抽象工厂模式的目的，是将若干抽象产品的接口与不同主题产品的具体实现分离开。这样就能在增加新的具体工厂的时候，不用修改引用抽象工厂的客户端代码。
-
-- 同工厂方法一样，抽象工厂在前端日常开发中几乎没有用武之地
 
 <img src="../../images/designPatterns/Abstract_factory.png" width="90%">
 
