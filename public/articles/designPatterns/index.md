@@ -416,7 +416,7 @@ function adapter(building) {
     age: Number(building.year),
   };
 }
-const age3 = getTotalAge(buildings.map((item) => adapter(item)));
+const age3 = getTotalAge(buildings.map(adapter));
 console.log("age3", age3);
 ```
 
