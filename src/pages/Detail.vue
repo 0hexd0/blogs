@@ -109,7 +109,6 @@ export default defineComponent({
 .dict {
   position: fixed;
   right: 0;
-  top: 20px;
 }
 .dict a {
   font-size: 15px;
