@@ -326,13 +326,15 @@ setTimeout(
 ```
 ## 结构型模式
 
+> 结构型模式主要总结了一些类或对象组合在一起的经典结构，这些经典的结构可以解决特定应用场景的问题。
+
 ### 适配器模式 <a href="/#/detail/designPatterns%2Fadapter" target="_blank" >示例代码</a>
 
 > 有时候也称包装样式或者包装。将一个类的接口转接成用户所期待的。一个适配使得因接口不兼容而不能在一起工作的类能在一起工作，做法是将类自己的接口包裹在一个已存在的类中。
 
 <img src="../../images/designPatterns/ObjectAdapter.png" width="70%">
 
-- Javascript没有类型约束，可以通过复制和修改对象来完成适配，不过这种方式运行效率差一些。
+- 开发过程中我们经常使用适配器模式，只不过没有把它分离成单独的adapter。
 
 ``` javascript
 // 计算总年龄
@@ -355,6 +357,11 @@ const persons = [
   },
 ];
 
+// 旧调用方式
+const age1 = getTotalAge(persons);
+console.log("age1", age1);
+
+// 能否兼容新的数据结构？
 const buildings = [
   {
     name: "教学楼",
@@ -366,11 +373,8 @@ const buildings = [
   },
 ];
 
-const age1 = getTotalAge(persons);
-console.log("age1", age1);
-
+// 常规写法
 const age2 = getTotalAge(
-  // 通过复制对象、修改属性的方式实现适配
   buildings.map((item) => {
     return {
       age: Number(item.year),
@@ -378,6 +382,15 @@ const age2 = getTotalAge(
   })
 );
 console.log("age2", age2);
+
+// 优化：分离出adapter
+function adapter(building) {
+  return {
+    age: Number(building.year),
+  };
+}
+const age3 = getTotalAge(buildings.map((item) => adapter(item)));
+console.log("age3", age3);
 ```
 
 ### 桥接模式 <a href="/#/detail/designPatterns%2Fbridge" target="_blank" >示例代码</a>
