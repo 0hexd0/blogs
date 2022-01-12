@@ -4,20 +4,37 @@
     <div class="pure-u-1-2">
       <div id="md-content" v-html="content"></div>
     </div>
-    <div class="pure-u-3-8"></div>
+    <div class="pure-u-3-8">
+      目录
+      <div v-for="item in headList">
+        <a :href="'#' + item.anchor" class="anchor-fix">
+          {{ item.text }}
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { apis } from "Apis/index";
-import { marked } from 'marked';
+import { marked } from "marked";
 import katex from "katex";
 
 // Set options
 // `highlight` example uses `highlight.js`
+const renderer = new marked.Renderer();
+
+const headList: any[] = [];
+renderer.heading = function (text, level, raw) {
+  const anchor = headList.push({ text, level, anchor: 0 });
+  headList[headList.length - 1].anchor = anchor;
+  // return `<a id="${anchor}" href="#${anchor}" class="anchor-fix"><h${level}>${text}</h${level}></a>\n`;
+  return `<h${level} id="${anchor}">${text}</h${level}>`;
+};
+
 marked.setOptions({
-  renderer: new marked.Renderer(),
+  renderer,
   highlight: function (code: string, lang: string, callback: any) {
     return hljs.highlight(code, { language: lang }).value;
   },
@@ -57,6 +74,7 @@ export default defineComponent({
   data() {
     return {
       content: "",
+      headList,
     };
   },
   methods: {
@@ -64,6 +82,7 @@ export default defineComponent({
       const res = await apis.getDetail({ name });
       const { data } = res as any;
       this.content = marked(data);
+      console.log(headList);
     },
   },
   mounted() {
