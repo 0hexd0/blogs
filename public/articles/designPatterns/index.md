@@ -101,7 +101,7 @@ interface IAlive {
 - 高层类定义好接口，自身的实现依赖于定义的接口；同时底层类的实现也依赖高层类的接口。
 - 由于这种设计，高层类可以使用任何实现了接口的底层类，这样就可以实现**依赖注入**。
 
-<img src="../../images/designPatterns/Dependency_inversion.png" width="90%">
+<img src="../../images/designPatterns/Dependency_inversion.png" width="60%">
 
 ### 依赖注入 <a href="/#/detail/designPatterns%2Fioc" target="_blank" >示例代码</a>
 
@@ -111,9 +111,12 @@ interface IAlive {
   
 ## 23 种设计模式
 
-<img src="../../images/designPatterns/23.svg" width="70%">
+<img src="../../images/designPatterns/23.svg" width="60%">
 
 ## 创建型模式
+
+> 创建型模式提供了创建对象的机制， 能够提升已有代码的灵活性和可复用性。
+> 创建型设计模式主要解决“对象的创建”问题。
 
 在创建复杂对象时，使用创建型模式可以避免创建对象和对象的消费过程耦合，同时提高代码复用率。
 
@@ -133,11 +136,19 @@ render: function (createElement) {
 
 ### 工厂方法 <a href="/#/detail/designPatterns%2Ffactory" target="_blank" >示例代码</a>
 
+#### 定义和描述
+
 > 工厂对象通常包含一个或多个方法，用来创建这个工厂所能创建的各种类型的对象。这些方法可能接收参数，用来指定对象创建的方式，最后返回创建的对象。
 
-- 对象的使用者把对象的创建过程委托给“工厂”，在编程时只依赖工厂接口，至于最终如何实例化对象，取决于使用的具体工厂和构建时传参
+- 对象的使用者把对象的创建过程委托给**工厂**，在编程时只依赖工厂接口，至于最终如何实例化对象，取决于使用的具体工厂和构建时传参。
 
-<img src="../../images/designPatterns/FactoryMethod.svg" width="90%">
+#### 真实世界类比
+
+小明去商店买饮料，小明可以买到可乐，雪碧等等许多饮料。小明想：小卖部真方便呀，我不用跑到可乐工厂去买可乐，也不用跑到雪碧工厂买雪碧。这里的小卖部既可以**提供**可乐也可以**提供**雪碧，作为**消费者**的小明只需要**依赖**小卖部这个饮料**供应商**就好了。这个例子中，小卖部就是可乐工厂和雪碧工厂的抽象，饮料就是可乐和雪碧的抽象。
+
+#### 类图
+
+<img src="../../images/designPatterns/FactoryMethod.svg" width="60%">
 
 #### 应用场景
 
@@ -231,15 +242,23 @@ function render(createElement) {
 
 ### 抽象工厂 <a href="/#/detail/designPatterns%2FabstractFactory" target="_blank" >示例代码</a>
 
+#### 定义和描述
+
 > “工厂”是创建产品（对象）的地方，其目的是将产品的创建与产品的使用分离。抽象工厂模式的目的，是将若干抽象产品的接口与不同主题产品的具体实现分离开。这样就能在增加新的具体工厂的时候，不用修改引用抽象工厂的客户端代码。
 
-<img src="../../images/designPatterns/Abstract_factory.png" width="90%">
+#### 真实世界类比
+
+小明在考驾照时学会了方向盘，刹车，转向灯的使用方式。拿到驾照后小明要买车了，他去车厂试驾，发现所有品牌的车都有方向盘，刹车和转向灯，而且**功能**都是一样的，只是装饰**风格**不同。因为车管所**规定**，任何车厂生产的汽车都必须具有方向盘，刹车，转向灯。这里车管所就是**抽象工厂**，它规定了车具有哪些功能，各个汽车厂商就是**具体工厂**，负责实际的生产。所以对小明来说，任何车都是一样的开。
+
+#### 类图
+
+<img src="../../images/designPatterns/Abstract_factory.png" width="60%">
 
 ### 建造模式 <a href="/#/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
 
 > 建造模式可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
 
-<img src="../../images/designPatterns/Builder.png" width="90%">
+<img src="../../images/designPatterns/Builder.png" width="60%">
 
 ### 抽象工厂和建造模式的比较
 
@@ -253,7 +272,7 @@ function render(createElement) {
 
 - 原型模式已经深深根植于Javascript语言之中，前端日常开发无时无刻不在使用原型模式，几乎所有对象都是从Object对象复制而来。
 
-<img src="../../images/designPatterns/Prototype.svg" width="90%">
+<img src="../../images/designPatterns/Prototype.svg" width="60%">
 
 ### 单例模式 <a href="/#/detail/designPatterns%2Fsingleton" target="_blank" >示例代码</a>
 
@@ -324,15 +343,17 @@ setTimeout(
   getUserInfo, 3000
 )
 ```
+
 ## 结构型模式
 
+> 结构型模式介绍如何将对象和类组装成较大的结构， 并同时保持结构的灵活和高效。
 > 结构型模式主要总结了一些类或对象组合在一起的经典结构，这些经典的结构可以解决特定应用场景的问题。
 
 ### 适配器模式 <a href="/#/detail/designPatterns%2Fadapter" target="_blank" >示例代码</a>
 
 > 有时候也称包装样式或者包装。将一个类的接口转接成用户所期待的。一个适配使得因接口不兼容而不能在一起工作的类能在一起工作，做法是将类自己的接口包裹在一个已存在的类中。
 
-<img src="../../images/designPatterns/ObjectAdapter.png" width="70%">
+<img src="../../images/designPatterns/ObjectAdapter.png" width="60%">
 
 - 开发过程中我们经常使用适配器模式，只不过没有把它分离成单独的adapter。
 
@@ -396,30 +417,28 @@ console.log("age3", age3);
 ### 桥接模式 <a href="/#/detail/designPatterns%2Fbridge" target="_blank" >示例代码</a>
 
 > 桥接模式是软件设计模式中最复杂的模式之一，它把事物对象和其具体行为、具体特征分离开来，使它们可以各自独立的变化。
-
 > 桥接模式就是为了避免直接继承带来的子类爆炸。
 
 - 由于Javascript中不存在类型，当然也不需要桥接模式。
 
-<img src="../../images/designPatterns/Bridge.svg" width="70%">
-
+<img src="../../images/designPatterns/Bridge.svg" width="60%">
 
 ### 组合模式 <a href="/#/detail/designPatterns%2Fcomposite" target="_blank" >示例代码</a>
 
 > The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies.
-
 > 组合模式通过把对象“组装”在树状结构之中来表示部分-整体结构
 
 - 让组合对象和单个对象看起来一样（使用同样的接口调用）
 
-<img src="../../images/designPatterns/Composite.svg" width="70%">
+<img src="../../images/designPatterns/Composite.svg" width="60%">
 
 #### 应用场景
 
 存在部分-整体结构的地方都可能用到组合模式：
-- 前端组件化就是应用了组合模式思想，父组件包含子组件，父组件渲染时会在内部渲染所有子组件
-- 表单校验功能，客户端只需执行表单的校验方法，该方法内部遍历校验所有表单项
-- 设计一个无层数限制，折叠展示的树状组件，父组件的toggle方法只需调用子组件的toggle，最终在叶子节点实现真正的toggle逻辑
+
+- 前端组件化就是应用了组合模式思想，父组件包含子组件，父组件渲染时会在内部渲染所有子组件。
+- 表单校验功能，客户端只需执行表单的校验方法，该方法内部遍历校验所有表单项。
+- 设计一个无层数限制，折叠展示的树状组件，父组件的toggle方法只需调用子组件的toggle，最终在叶子节点实现真正的toggle逻辑。
 
 ### 装饰模式 <a href="/#/detail/designPatterns%2Fdecorator" target="_blank" >示例代码</a>
 
@@ -429,13 +448,19 @@ console.log("age3", age3);
   
 > A first version of what will be in the specification. At this point, an eventual inclusion of the feature in the standard is likely.
 
-<img src="../../images/designPatterns/Decorator.svg" width="70%">
+<img src="../../images/designPatterns/Decorator.svg" width="60%">
 
 ### 外观模式 <a href="/#/detail/designPatterns%2Ffacade" target="_blank" >示例代码</a>
 
-> 外观模为为子系统中的一组界面提供一个统一的高层界面，使得子系统更容易使用
+> 外观模为为子系统中的一组界面提供一个统一的高层界面，使得子系统更容易使用。
 
-<img src="../../images/designPatterns/Facade.svg" width="70%">
+#### 真实世界类比
+
+小明决定使用中通快递来邮寄一本书，整个邮寄过程需要快递公司各个子系统的协作才能完成，小明不可能和所有子系统交互，他只需要在官网下单就好了。中通官网就是整个快递公司的**外观**。
+
+- 外观模式
+
+<img src="../../images/designPatterns/Facade.svg" width="60%">
 
 ### 享元模式 <a href="/#/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
 
@@ -447,18 +472,21 @@ console.log("age3", age3);
 
 > a proxy is a wrapper or agent object that is being called by the client to access the real serving object behind the scenes. Use of the proxy can simply be forwarding to the real object, or can provide additional logic.
 
-![代理模式](../../images/designPatterns/Proxy.svg)
+<img src="../../images/designPatterns/Proxy.svg" width="60%">
 
 ## 行为型模式
+
+> 行为模式负责对象间的高效沟通和职责委派。
+> 行为型设计模式主要解决的就是“类或对象之间的交互”问题。
 
 ### 责任链模式 <a href="/#/detail/designPatterns%2FchainOfResponsibility" target="_blank" >示例代码</a>
 
 > 责任链包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。该模式还描述了往该处理链的末尾添加新的处理对象的方法。
 
-![责任链模式](../../images/designPatterns/Chain_of_Responsibility.jpg)
+<img src="../../images/designPatterns/Chain_of_Responsibility.jpg" width="60%">
 
 ### 命令模式 <a href="/#/detail/designPatterns%2Fcommand" target="_blank" >示例代码</a>
-；
+
 > the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time.
 
 ### 解释器模式
@@ -485,19 +513,19 @@ console.log("age3", age3);
 
 > 在此种模式中，一个目标对象管理所有相依于它的观察者对象，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。
 
-![观察者模式](../../images/designPatterns/Observer.png)
+<img src="../../images/designPatterns/Observer.png" width="60%">
 
 - 发布订阅模式通过新增事件中心，避免了目标和观察者互相耦合
 
 ### 状态机模式 <a href="/#/detail/designPatterns%2Fstate" target="_blank" >示例代码</a>
 
-> The state pattern is a behavioral software design pattern that allows an object to alter its behavior when its internal state changes. 
+> The state pattern is a behavioral software design pattern that allows an object to alter its behavior when its internal state changes.
 
 - 把状态封装在调用对象之中，通过修改对象状态改变方法的行为
 
 ### 策略模式 <a href="/#/detail/designPatterns%2Fstrategy" target="_blank" >示例代码</a>
 
-> the strategy pattern (also known as the policy pattern) is a behavioral software design pattern that enables selecting an algorithm at runtime. 
+> the strategy pattern (also known as the policy pattern) is a behavioral software design pattern that enables selecting an algorithm at runtime.
 
 ### 模板方法 <a href="/#/detail/designPatterns%2Ftemplate" target="_blank" >示例代码</a>
 
@@ -517,10 +545,10 @@ console.log("age3", age3);
 
 ## 参考资料
 
-1. [维基百科](https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%8F%AF%E5%A4%8D%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9F%BA%E7%A1%80)，本文大部分文字引用和部分代码都是摘抄自此站点。
-2. [InversifyJS](https://inversify.io/)，最流行的TypeScript控制反转框架，本文参考了该站点部分代码。
-3. 《Javascript设计模式与开发实践》，本文参考了书中的部分代码。
-4. [Typescript演练场](https://www.typescriptlang.org/zh/play)，一个在线的typescript编译执行环境，本文部分代码在此调试。
-5. [桥接模式](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319266943009)，廖雪峰老师关于桥接的描述，十分易于理解，有参考。
-6. [javascript装饰器提案进展](https://github.com/tc39/proposal-decorators)
-7. [typescript装饰器](https://www.tslang.cn/docs/handbook/decorators.html)
+本文或多或少引用了以下资料的代码和描述，感兴趣的读者可自行阅读
+
+1. [维基百科](https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%8F%AF%E5%A4%8D%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9F%BA%E7%A1%80)：权威描述
+2. [Typescript演练场](https://www.typescriptlang.org/zh/play)：在线的typescript编译执行环境
+3. [桥接模式](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319266943009)：廖雪峰老师关于桥接的描述
+4. [深入理解设计模式](https://refactoringguru.cn/)：图文并茂
+5. 极客时间《设计模式之美》：代码例子比较贴合实际应用场景，收费
