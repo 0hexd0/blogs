@@ -1,10 +1,10 @@
 <template>
   <div class="pure-g">
     <div class="pure-u-1-8"></div>
-    <div class="pure-u-3-4">
+    <div class="pure-u-1-2">
       <div id="md-content" v-html="content"></div>
     </div>
-    <div class="pure-u-1-8"></div>
+    <div class="pure-u-3-8"></div>
   </div>
 </template>
 
