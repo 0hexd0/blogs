@@ -256,7 +256,10 @@ function render(createElement) {
 
 ### 建造模式 <a href="/#/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
 
-> 建造模式可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
+#### 定义和描述
+
+> 建造模式可以将复杂对象的建造过程抽象出来（抽象类），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
+#### 类图
 
 <img src="../../images/designPatterns/Builder.png" width="60%">
 
