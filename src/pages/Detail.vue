@@ -4,9 +4,11 @@
     <div class="pure-u-1-2">
       <div id="md-content" v-html="content"></div>
     </div>
-    <div class="pure-u-3-8">
-      目录
-      <div v-for="item in headList">
+    <div class="pure-u-3-8 dict">
+      <div
+        v-for="item in headList"
+        :style="{ paddingLeft: 100 + item.level * 20 + 'px' }"
+      >
         <a :href="'#' + item.anchor" class="anchor-fix">
           {{ item.text }}
         </a>
@@ -25,12 +27,19 @@ import katex from "katex";
 // `highlight` example uses `highlight.js`
 const renderer = new marked.Renderer();
 
-const headList: any[] = [];
+let headList: any = [];
 renderer.heading = function (text, level, raw) {
-  const anchor = headList.push({ text, level, anchor: 0 });
-  headList[headList.length - 1].anchor = anchor;
-  // return `<a id="${anchor}" href="#${anchor}" class="anchor-fix"><h${level}>${text}</h${level}></a>\n`;
-  return `<h${level} id="${anchor}">${text}</h${level}>`;
+  if (level < 4) {
+    const anchor = headList.push({
+      text: text.replaceAll(/<a href(.*)\/a>/g, ""),
+      level,
+      anchor: 0,
+    });
+    headList[headList.length - 1].anchor = anchor;
+    return `<h${level} id="${anchor}">${text}</h${level}>`;
+  } else {
+    return `<h${level} >${text}</h${level}>`;
+  }
 };
 
 marked.setOptions({
@@ -51,7 +60,6 @@ marked.setOptions({
 // Override function
 const tokenizer = {
   inlineText(src: string, inRawBlock: boolean, smartypants: any) {
-    // const match = src.match(/\$\$([^\$\n]+?)\$\$/);
     const mathMatch = src.match(/\$\$([^\$\n]+?)\$\$/);
     if (mathMatch && src.includes("$$")) {
       console.log("inRawBlock", inRawBlock);
@@ -62,7 +70,6 @@ const tokenizer = {
         text: katex.renderToString(mathMatch[1].trim()),
       };
     }
-    // return false to use original codespan tokenizer
     return false;
   },
 } as any;
@@ -74,15 +81,16 @@ export default defineComponent({
   data() {
     return {
       content: "",
-      headList,
+      headList: [],
     };
   },
   methods: {
     async loadData(name = "") {
+      headList = []; // 每次解析之前清空目录
       const res = await apis.getDetail({ name });
       const { data } = res as any;
       this.content = marked(data);
-      console.log(headList);
+      this.headList = Array.from(headList); // 解析完设置目录
     },
   },
   mounted() {
@@ -98,4 +106,16 @@ export default defineComponent({
 
 <style lang="scss">
 @import url("./markdown.scss");
+.dict {
+  position: fixed;
+  right: 0;
+  top: 20px;
+}
+.dict a {
+  font-size: 15px;
+  color: silver;
+}
+.dict a:hover {
+  color: #666;
+}
 </style>
