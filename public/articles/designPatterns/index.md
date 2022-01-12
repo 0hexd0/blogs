@@ -12,8 +12,8 @@
 
 > 面向对象程序设计（英语：Object-oriented programming，缩写：OOP）是种具有对象概念的编程典范，同时也是一种程序开发的抽象方针。它可能包含数据、特性、代码与方法。对象则指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性，对象里的程序可以访问及经常修改对象相关连的数据。
 
-- Javascript 对 class 的支持并不完善，所以严格意义上说 Javascript**不是面向对象**的。但由于有对象（object）的存在,Javascript 的开发者依旧可以借鉴设计模式写出更好的代码。
-- Typescript 对 class 的支持比较完整，所以是面向对象的。
+- JavaScript 对 class 的支持并不完善，所以严格意义上说 JavaScript**不是面向对象**的。但由于有对象（object）的存在,JavaScript 的开发者依旧可以借鉴设计模式写出更好的代码。
+- TypeScript 对 class 的支持比较完整，所以是面向对象的。
 
 ## SOLID (面向对象设计的基本原则)
 
@@ -32,7 +32,7 @@
 - 在**只新增代码，不修改原代码**的情况下增加新的功能
 - **面向接口编程**是个好主意
 
-```typescript
+``` TypeScript
 // 我会飞
 interface ICanFly {
     void fly(); // 必须具有fly方法，这是约定...
@@ -78,7 +78,7 @@ class Space implements ICanFly {
 
 - 接口要尽可能的拆分，避免胖接口
 
-```typescript
+```TypeScript
 // 胖接口
 interface IBird {
     void fly();
@@ -155,7 +155,7 @@ render: function (createElement) {
 - 当我们用不同的参数生成不同的对象，我们就是在使用**简单工厂**
 - 考虑较复杂的一个场景，我们希望统一整个项目的对话框。对话框目前有两种：信息对话框和表单对话框。信息对话框只要展示提示信息，表单对话框展示表单组件。这时可以考虑工厂方法。
 
-``` typescript
+``` TypeScript
 interface VueComponent {}
 
 enum MessageDialogType {
@@ -273,7 +273,7 @@ function render(createElement) {
 
 > 特点在于通过“复制”一个已经存在的实例来返回新的实例,而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的。
 
-- 原型模式已经深深根植于Javascript语言之中，前端日常开发无时无刻不在使用原型模式，几乎所有对象都是从Object对象复制而来。
+- 原型模式已经深深根植于JavaScript语言之中，前端日常开发无时无刻不在使用原型模式，几乎所有对象都是从Object对象复制而来。
 
 <img src="../../images/designPatterns/Prototype.svg" width="60%">
 
@@ -310,7 +310,7 @@ myApp.createLoginLayer = (function () {
 
 - 如果某些接口只被调用一次（比如用户信息、菜单、配置项），可以结合Promise封装一些惰性且带缓存的接口
   
-``` typescript
+``` TypeScript
 namespace DisposableApis {
   let permissions: [] | null = null;
   export async function getPermissions() {
@@ -422,7 +422,7 @@ console.log("age3", age3);
 > 桥接模式是软件设计模式中最复杂的模式之一，它把事物对象和其具体行为、具体特征分离开来，使它们可以各自独立的变化。
 > 桥接模式就是为了避免直接继承带来的子类爆炸。
 
-- 由于Javascript中不存在类型，当然也不需要桥接模式。
+- 由于JavaScript中不存在类型，当然也不需要桥接模式。
 
 <img src="../../images/designPatterns/Bridge.svg" width="60%">
 
@@ -447,7 +447,7 @@ console.log("age3", age3);
 
 > 装饰模式，一种动态地往一个类别中添加新的行为的设计模式
 
-- Javascript装饰器提案正处于草案阶段
+- JavaScript装饰器提案正处于草案阶段
 
 <img src="../../images/designPatterns/Decorator.svg" width="60%">
 
@@ -549,7 +549,7 @@ console.log("age3", age3);
 本文或多或少引用了以下资料的代码和描述，感兴趣的读者可自行阅读
 
 1. [维基百科](https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%8F%AF%E5%A4%8D%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9F%BA%E7%A1%80)：权威描述
-2. [Typescript演练场](https://www.typescriptlang.org/zh/play)：在线的typescript编译执行环境
+2. [Typescript演练场](https://www.typescriptlang.org/zh/play)：在线的TypeScript编译执行环境
 3. [桥接模式](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319266943009)：廖雪峰老师关于桥接的描述
 4. [深入理解设计模式](https://refactoringguru.cn/)：图文并茂
 5. 极客时间《设计模式之美》：代码例子比较贴合实际应用场景，收费
