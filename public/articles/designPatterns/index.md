@@ -113,9 +113,20 @@ interface IAlive {
 
 <img src="../../images/designPatterns/23.svg" width="70%">
 
+## 创建型模式
+
+在创建复杂对象时，使用创建型模式可以避免创建对象和对象的消费过程耦合，同时提高代码复用率。
+
+### Vue中的创建型模式
+
+在使用templat方式声明组件时，通过标签引用子组件，相当于直接组合具体类，这种写法缺少动态能力，我们可以使用动态组件技术修改部分子组件的运行时实例，但却无法修改子组件的布局方式。所以要想更好的利用创建型模式，必须使用render函数。
+
 ### 构造器模式 <a href="/#/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
 
 > 构造器模式也叫建造模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
+
+#### 应用场景
+- 在Vue项目中，
 
 ![构造器模式](../../images/designPatterns/Builder.png)
 
@@ -216,6 +227,8 @@ setTimeout(
   getUserInfo, 3000
 )
 ```
+## 结构型模式
+
 ### 适配器模式 <a href="/#/detail/designPatterns%2Fadapter" target="_blank" >示例代码</a>
 
 > 有时候也称包装样式或者包装。将一个类的接口转接成用户所期待的。一个适配使得因接口不兼容而不能在一起工作的类能在一起工作，做法是将类自己的接口包裹在一个已存在的类中。
@@ -326,6 +339,8 @@ console.log("age2", age2);
 
 ![代理模式](../../images/designPatterns/Proxy.svg)
 
+## 行为型模式
+
 ### 责任链模式 <a href="/#/detail/designPatterns%2FchainOfResponsibility" target="_blank" >示例代码</a>
 
 > 责任链包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。该模式还描述了往该处理链的末尾添加新的处理对象的方法。
@@ -333,7 +348,7 @@ console.log("age2", age2);
 ![责任链模式](../../images/designPatterns/Chain_of_Responsibility.jpg)
 
 ### 命令模式 <a href="/#/detail/designPatterns%2Fcommand" target="_blank" >示例代码</a>
-
+；
 > the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time.
 
 ### 解释器模式
@@ -363,6 +378,7 @@ console.log("age2", age2);
 ![观察者模式](../../images/designPatterns/Observer.png)
 
 - 发布订阅模式通过新增事件中心，避免了目标和观察者互相耦合
+
 ### 状态机模式 <a href="/#/detail/designPatterns%2Fstate" target="_blank" >示例代码</a>
 
 > The state pattern is a behavioral software design pattern that allows an object to alter its behavior when its internal state changes. 
