@@ -375,11 +375,11 @@ function getTotalAge(persons) {
 
 const persons = [
   {
-    name: "李洛克",
+    name: "小明",
     age: 18,
   },
   {
-    name: "漩涡鸣人",
+    name: "小李",
     age: 19,
   },
 ];
