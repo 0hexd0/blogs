@@ -103,7 +103,7 @@ interface IAlive {
 
 <img src="../../images/designPatterns/Dependency_inversion.png" width="60%">
 
-### 依赖注入 <a href="/#/detail/designPatterns%2Fioc" target="_blank" >示例代码</a>
+### 依赖注入 <a href="/detail/designPatterns%2Fioc" target="_blank" >示例代码</a>
 
 > 依赖注入形式下，调用方不再直接使用**依赖**，取而代之是**注入** 。**注入**是指将**依赖**传递给调用方的过程。在**注入**之后，调用方才会调用该**依赖**。
 
@@ -135,7 +135,7 @@ render: function (createElement) {
 }
 ```
 
-### 工厂方法 <a href="/#/detail/designPatterns%2Ffactory" target="_blank" >示例代码</a>
+### 工厂方法 <a href="/detail/designPatterns%2Ffactory" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -241,7 +241,7 @@ function render(createElement) {
 }
 ```
 
-### 抽象工厂 <a href="/#/detail/designPatterns%2FabstractFactory" target="_blank" >示例代码</a>
+### 抽象工厂 <a href="/detail/designPatterns%2FabstractFactory" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -255,7 +255,7 @@ function render(createElement) {
 
 <img src="../../images/designPatterns/Abstract_factory.png" width="60%">
 
-### 建造模式 <a href="/#/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
+### 建造模式 <a href="/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -273,7 +273,7 @@ function render(createElement) {
 - 建造模式更加关心构建过程，多了Director角色，令其提供了多种构造方法。
 - 具体到前端应用场景，如果需要创建多套不同风格的组件，使用抽象工厂，如果要创建一个极其复杂的业务组件，使用建造模式。
 
-### 原型模式 <a href="/#/detail/designPatterns%2Fprototype" target="_blank" >示例代码</a>
+### 原型模式 <a href="/detail/designPatterns%2Fprototype" target="_blank" >示例代码</a>
 
 > 特点在于通过“复制”一个已经存在的实例来返回新的实例,而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的。
 
@@ -281,7 +281,7 @@ function render(createElement) {
 
 <img src="../../images/designPatterns/Prototype.svg" width="60%">
 
-### 单例模式 <a href="/#/detail/designPatterns%2Fsingleton" target="_blank" >示例代码</a>
+### 单例模式 <a href="/detail/designPatterns%2Fsingleton" target="_blank" >示例代码</a>
 
 > 在应用这个模式时，单例对象的类必须保证只有一个实例存在。
 
@@ -357,7 +357,7 @@ setTimeout(
 
 > 结构型模式主要总结了一些类或对象组合在一起的经典结构，这些经典的结构可以解决特定应用场景的问题。
 
-### 适配器模式 <a href="/#/detail/designPatterns%2Fadapter" target="_blank" >示例代码</a>
+### 适配器模式 <a href="/detail/designPatterns%2Fadapter" target="_blank" >示例代码</a>
 
 > 有时候也称包装样式或者包装。将一个类的接口转接成用户所期待的。一个适配使得因接口不兼容而不能在一起工作的类能在一起工作，做法是将类自己的接口包裹在一个已存在的类中。
 
@@ -422,7 +422,7 @@ const age3 = getTotalAge(buildings.map(adapter));
 console.log("age3", age3);
 ```
 
-### 桥接模式 <a href="/#/detail/designPatterns%2Fbridge" target="_blank" >示例代码</a>
+### 桥接模式 <a href="/detail/designPatterns%2Fbridge" target="_blank" >示例代码</a>
 
 > 桥接模式是软件设计模式中最复杂的模式之一，它把事物对象和其具体行为、具体特征分离开来，使它们可以各自独立的变化。
 > 桥接模式就是为了避免直接继承带来的子类爆炸。
@@ -431,7 +431,7 @@ console.log("age3", age3);
 
 <img src="../../images/designPatterns/Bridge.svg" width="60%">
 
-### 组合模式 <a href="/#/detail/designPatterns%2Fcomposite" target="_blank" >示例代码</a>
+### 组合模式 <a href="/detail/designPatterns%2Fcomposite" target="_blank" >示例代码</a>
 
 > The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies.
 > 组合模式通过把对象“组装”在树状结构之中来表示部分-整体结构
@@ -448,7 +448,7 @@ console.log("age3", age3);
 - 表单校验功能，客户端只需执行表单的校验方法，该方法内部遍历校验所有表单项。
 - 设计一个无层数限制，折叠展示的树状组件，父组件的toggle方法只需调用子组件的toggle，最终在叶子节点实现真正的toggle逻辑。
 
-### 装饰模式 <a href="/#/detail/designPatterns%2Fdecorator" target="_blank" >示例代码</a>
+### 装饰模式 <a href="/detail/designPatterns%2Fdecorator" target="_blank" >示例代码</a>
 
 > 装饰模式，一种动态地往一个类别中添加新的行为的设计模式
 
@@ -456,7 +456,7 @@ console.log("age3", age3);
 
 <img src="../../images/designPatterns/Decorator.svg" width="60%">
 
-### 外观模式 <a href="/#/detail/designPatterns%2Ffacade" target="_blank" >示例代码</a>
+### 外观模式 <a href="/detail/designPatterns%2Ffacade" target="_blank" >示例代码</a>
 
 > 外观模为为子系统中的一组界面提供一个统一的高层界面，使得子系统更容易使用。
 
@@ -468,13 +468,13 @@ console.log("age3", age3);
 
 <img src="../../images/designPatterns/Facade.svg" width="60%">
 
-### 享元模式 <a href="/#/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
+### 享元模式 <a href="/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
 
 > 通常物件中的部分状态(state)能够共享。常见做法是把它们放在数据结构外部，当需要使用时再将它们传递给享元。
 
 #### vuex是否应用了享元模式？
 
-### 代理模式 <a href="/#/detail/designPatterns%2Fproxy" target="_blank" >示例代码</a>
+### 代理模式 <a href="/detail/designPatterns%2Fproxy" target="_blank" >示例代码</a>
 
 > a proxy is a wrapper or agent object that is being called by the client to access the real serving object behind the scenes. Use of the proxy can simply be forwarding to the real object, or can provide additional logic.
 
@@ -486,13 +486,13 @@ console.log("age3", age3);
 
 > 行为型设计模式主要解决的就是“类或对象之间的交互”问题。
 
-### 责任链模式 <a href="/#/detail/designPatterns%2FchainOfResponsibility" target="_blank" >示例代码</a>
+### 责任链模式 <a href="/detail/designPatterns%2FchainOfResponsibility" target="_blank" >示例代码</a>
 
 > 责任链包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。该模式还描述了往该处理链的末尾添加新的处理对象的方法。
 
 <img src="../../images/designPatterns/Chain_of_Responsibility.jpg" width="60%">
 
-### 命令模式 <a href="/#/detail/designPatterns%2Fcommand" target="_blank" >示例代码</a>
+### 命令模式 <a href="/detail/designPatterns%2Fcommand" target="_blank" >示例代码</a>
 
 > the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time.
 
@@ -500,23 +500,23 @@ console.log("age3", age3);
 
 > 指定如何对某种语言中的表达式求值
 
-### 迭代器模式 <a href="/#/detail/designPatterns%2Fiterator" target="_blank" >示例代码</a>
+### 迭代器模式 <a href="/detail/designPatterns%2Fiterator" target="_blank" >示例代码</a>
 
 > 可以让用户透过特定的接口轮流访问容器中的每一个元素而不用了解底层的实现
 
 - javascript迭代器与生成器
 
-### 中介者模式 <a href="/#/detail/designPatterns%2Fmediator" target="_blank" >示例代码</a>
+### 中介者模式 <a href="/detail/designPatterns%2Fmediator" target="_blank" >示例代码</a>
 
 > 中介者模式定义了一个中介者对象，该对象封装了系统中对象间的交互方式。 由于它可以在运行时改变程序的行为
 
-### 备忘录模式 <a href="/#/detail/designPatterns%2Fmemento" target="_blank" >示例代码</a>
+### 备忘录模式 <a href="/detail/designPatterns%2Fmemento" target="_blank" >示例代码</a>
 
 > The memento pattern is a software design pattern that provides the ability to restore an object to its previous state.
 
 - 备忘录模式是一种用空间换时间的常用手段
 
-### 观察者模式 <a href="/#/detail/designPatterns%2Fobserver" target="_blank" >示例代码</a>
+### 观察者模式 <a href="/detail/designPatterns%2Fobserver" target="_blank" >示例代码</a>
 
 > 在此种模式中，一个目标对象管理所有相依于它的观察者对象，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。
 
@@ -524,21 +524,21 @@ console.log("age3", age3);
 
 - 发布订阅模式通过新增事件中心，避免了目标和观察者互相耦合
 
-### 状态机模式 <a href="/#/detail/designPatterns%2Fstate" target="_blank" >示例代码</a>
+### 状态机模式 <a href="/detail/designPatterns%2Fstate" target="_blank" >示例代码</a>
 
 > The state pattern is a behavioral software design pattern that allows an object to alter its behavior when its internal state changes.
 
 - 把状态封装在调用对象之中，通过修改对象状态改变方法的行为
 
-### 策略模式 <a href="/#/detail/designPatterns%2Fstrategy" target="_blank" >示例代码</a>
+### 策略模式 <a href="/detail/designPatterns%2Fstrategy" target="_blank" >示例代码</a>
 
 > the strategy pattern (also known as the policy pattern) is a behavioral software design pattern that enables selecting an algorithm at runtime.
 
-### 模板方法 <a href="/#/detail/designPatterns%2Ftemplate" target="_blank" >示例代码</a>
+### 模板方法 <a href="/detail/designPatterns%2Ftemplate" target="_blank" >示例代码</a>
 
 > 模板方法是一个定义在父类别的方法，在模板方法中会呼叫多个定义在父类别的其他方法，而这些方法有可能只是抽象方法并没有实作，模板方法仅决定这些抽象方法的执行顺序，这些抽象方法的实作由子类别负责，并且子类别不允许覆写模板方法。
 
-### 访问者模式 <a href="/#/detail/designPatterns%2Fvisitor" target="_blank" >示例代码</a>
+### 访问者模式 <a href="/detail/designPatterns%2Fvisitor" target="_blank" >示例代码</a>
 
 > 首先我们拥有一个由许多对象构成的对象结构，这些对象的类都拥有一个accept方法用来接受访问者对象；访问者是一个接口，它拥有一个visit方法，这个方法对访问到的对象结构中不同类型的元素作出不同的反应；在对象结构的一次访问过程中，我们遍历整个对象结构，对每一个元素都实施accept方法，在每一个元素的accept方法中回调访问者的visit方法，从而使访问者得以处理对象结构的每一个元素。
 
