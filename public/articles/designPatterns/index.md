@@ -121,15 +121,6 @@ interface IAlive {
 
 在使用templat方式声明组件时，通过标签引用子组件，相当于直接组合具体类，这种写法缺少动态能力，我们可以使用动态组件技术修改部分子组件的运行时实例，但却无法修改子组件的布局方式。所以要想更好的利用创建型模式，必须使用render函数。
 
-### 构造器模式 <a href="/#/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
-
-> 构造器模式也叫建造模式，是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
-
-#### 应用场景
-- 在Vue项目中，
-
-![构造器模式](../../images/designPatterns/Builder.png)
-
 ### 工厂方法 <a href="/#/detail/designPatterns%2Ffactory" target="_blank" >示例代码</a>
 
 > 工厂对象通常包含一个或多个方法，用来创建这个工厂所能创建的各种类型的对象。这些方法可能接收参数，用来指定对象创建的方式，最后返回创建的对象。
@@ -149,6 +140,18 @@ interface IAlive {
 - 同工厂方法一样，抽象工厂在前端日常开发中几乎没有用武之地
 
 <img src="../../images/designPatterns/Abstract_factory.png" width="90%">
+
+### 建造模式 <a href="/#/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
+
+> 建造模式可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。
+
+<img src="../../images/designPatterns/Builder.png" width="90%">
+
+### 抽象工厂和建造模式的比较
+
+- 两者的代码结构类似，Factory和Builder极为类似。
+- 建造模式更加关心构建过程，多了Director角色，令其提供了多种构造方法。
+- 具体到前端应用场景，如果需要创建多套不同风格的组件，使用抽象工厂，如果要创建一个极其复杂的业务组件，使用建造模式。
 
 ### 原型模式 <a href="/#/detail/designPatterns%2Fprototype" target="_blank" >示例代码</a>
 
