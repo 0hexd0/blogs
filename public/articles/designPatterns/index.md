@@ -447,9 +447,7 @@ console.log("age3", age3);
 
 > 装饰模式，一种动态地往一个类别中添加新的行为的设计模式
 
-- Javascript装饰器提案正处于stage-2草案阶段
-  
-> A first version of what will be in the specification. At this point, an eventual inclusion of the feature in the standard is likely.
+- Javascript装饰器提案正处于草案阶段
 
 <img src="../../images/designPatterns/Decorator.svg" width="60%">
 

@@ -5,6 +5,11 @@
   line-height: 1.5em;
 }
 
+#md-content strong {
+  color: darkred;
+  font-weight: inherit;
+}
+
 #md-content blockquote {
   line-height: 1.5em;
 }
@@ -37,7 +42,6 @@
   border-left: 4px solid #ddd;
   padding-left: 20px;
   margin-left: 0;
-  font-style: italic;
 }
 
 #md-content code {
