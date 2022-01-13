@@ -284,13 +284,21 @@ function render(createElement) {
 
 ### 原型模式 <a href="/detail/designPatterns%2Fprototype" target="_blank" >示例代码</a>
 
+#### 定义和描述
+
 > 特点在于通过“复制”一个已经存在的实例来返回新的实例,而不是新建实例。被复制的实例就是我们所称的“原型”，这个原型是可定制的。
 
-- 原型模式已经深深根植于JavaScript语言之中，前端日常开发无时无刻不在使用原型模式，几乎所有对象都是从Object对象复制而来。
+#### 真实世界类比
+
+原型模式已经深深根植于JavaScript语言之中，前端日常开发无时无刻不在使用原型模式，几乎所有对象都是从Object对象复制而来。
+
+#### 类图
 
 <img src="../../images/designPatterns/Prototype.svg" width="60%">
 
 ### 单例模式 <a href="/detail/designPatterns%2Fsingleton" target="_blank" >示例代码</a>
+
+#### 定义和描述
 
 > 在应用这个模式时，单例对象的类必须保证只有一个实例存在。
 
