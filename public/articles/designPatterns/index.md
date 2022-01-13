@@ -373,6 +373,8 @@ setTimeout(
 
 <img src="../../images/designPatterns/ObjectAdapter.png" width="60%">
 
+- Vue中的filter过滤器，el-table中的filter，都应用了适配器模式。
+
 - 开发过程中我们经常使用适配器模式，只不过没有把它分离成单独的adapter。
 
 ``` javascript
