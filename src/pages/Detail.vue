@@ -8,7 +8,7 @@
       <div
         v-for="(item, idx) in headList"
         :key="idx"
-        :style="{ paddingLeft: 100 + item.level * 20 + 'px' }"
+        :style="{ paddingLeft: 100 + item.level * 20 + 'px', height: '16px' }"
       >
         <a :href="'#' + item.anchor" class="anchor-fix">
           {{ item.text }}
@@ -112,12 +112,13 @@ export default defineComponent({
   right: 0;
   top: 0;
   bottom: 0;
-  padding-top: 20px;
+  padding-top: 40px;
   overflow-y: auto;
 }
 .dict a {
   font-size: 14px;
   color: silver;
+  line-height: 16px;
 }
 .dict a:hover {
   color: #666;
