@@ -255,6 +255,10 @@ function render(createElement) {
 
 <img src="../../images/designPatterns/Abstract_factory.png" width="60%">
 
+#### 应用场景
+
+现在要用2套设计和交互规范实现切换皮肤功能，某些可以通过修改CSS直接实现，但有些组件交互逻辑完全不同。此时可以用抽象工厂模式。
+
 ### 建造模式 <a href="/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
 
 #### 定义和描述
@@ -273,7 +277,7 @@ function render(createElement) {
 
 - 两者的代码结构类似，Factory和Builder极为类似。
 - 建造模式更加关心构建过程，多了Director角色，令其提供了多种构造方法。
-- 具体到前端应用场景，如果需要创建多套不同风格的组件，使用抽象工厂，如果要创建一个极其复杂的业务组件，使用建造模式。
+#### 应用场景
 
 ### 原型模式 <a href="/detail/designPatterns%2Fprototype" target="_blank" >示例代码</a>
 
@@ -295,6 +299,7 @@ function render(createElement) {
 
 #### 应用场景
 
+- 使用Vuex每个应用将**仅仅包含一个store实例**
 - 全局性的dom只保留一个实例，比如全局dialog
 
 ``` javascript
