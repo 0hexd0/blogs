@@ -12,8 +12,8 @@
 
 > 面向对象程序设计（英语：Object-oriented programming，缩写：OOP）是种具有对象概念的编程典范，同时也是一种程序开发的抽象方针。它可能包含数据、特性、代码与方法。对象则指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性，对象里的程序可以访问及经常修改对象相关连的数据。
 
-- JavaScript 对 class 的支持并不完善，所以严格意义上说 JavaScript**不是面向对象**的。但由于有对象（object）的存在，JavaScript 的开发者依旧可以借鉴设计模式写出更好的代码。
-- TypeScript 对 class 的支持比较完整，所以是面向对象的。
+- JavaScript有基础类型和对象类型，无类型系统，所以严格意义上说 JavaScript**不是面向对象**的。但由于有对象（object）的存在，JavaScript 的开发者依旧可以借鉴设计模式写出更好的代码。
+- TypeScript有完整且强大的类型系统，所以是面向对象的。
 
 ## SOLID (面向对象设计的基本原则)
 
@@ -272,6 +272,9 @@ function render(createElement) {
 #### 类图
 
 <img src="../../images/designPatterns/Builder.png" width="60%">
+
+#### 应用场景
+
 
 ### 抽象工厂和建造模式的比较
 
