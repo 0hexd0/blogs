@@ -18,7 +18,8 @@
   max-width: 100%;
 }
 
-#md-content .hljs-comment, .hljs-quote {
+#md-content .hljs-comment,
+.hljs-quote {
   font-style: initial;
 }
 
@@ -38,13 +39,13 @@
 }
 
 #md-content code.hljs {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 #md-content blockquote {
   color: #666;
   border-left: 4px solid #ddd;
-  padding-left: 20px;
+  padding-left: 18px;
   margin-left: 0;
 }
 

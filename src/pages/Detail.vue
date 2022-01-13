@@ -6,7 +6,8 @@
     </div>
     <div class="pure-u-3-8 dict">
       <div
-        v-for="item in headList"
+        v-for="(item, idx) in headList"
+        :key="idx"
         :style="{ paddingLeft: 100 + item.level * 20 + 'px' }"
       >
         <a :href="'#' + item.anchor" class="anchor-fix">
@@ -109,9 +110,13 @@ export default defineComponent({
 .dict {
   position: fixed;
   right: 0;
+  top: 0;
+  bottom: 0;
+  padding-top: 20px;
+  overflow-y: auto;
 }
 .dict a {
-  font-size: 15px;
+  font-size: 14px;
   color: silver;
 }
 .dict a:hover {
