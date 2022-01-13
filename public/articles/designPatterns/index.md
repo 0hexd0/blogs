@@ -257,7 +257,7 @@ function render(createElement) {
 
 #### 应用场景
 
-现在要用2套设计和交互规范实现切换皮肤功能，某些可以通过修改CSS直接实现，但有些组件交互逻辑完全不同。此时可以用抽象工厂模式。
+现在要用8套设计和交互规范实现切换皮肤功能，某些可以通过修改CSS直接实现，但有些组件交互逻辑完全不同。此时可以用抽象工厂模式。
 
 ### 建造模式 <a href="/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
 
@@ -275,11 +275,13 @@ function render(createElement) {
 
 #### 应用场景
 
+有些站点在提交表单时往往要构造一个巨大的参数对象（表单来源和其他来源），参数构造逻辑大部分情况下是和业务逻辑**藕合**在一起的，这时我们可以使用建造模式将其分离。
 
 ### 抽象工厂和建造模式的比较
 
-- 两者的代码结构类似，Factory和Builder极为类似。
-- 建造模式更加关心构建过程，多了Director角色，令其提供了多种构造方法。
+- Factory的methods之间通常没有关联；Builder的methods可能同属于某个产品的构建过程。
+- 建造模式多了Director角色，令其控制组装过程；抽象工厂的产品往往在客户端被组装。
+
 #### 应用场景
 
 ### 原型模式 <a href="/detail/designPatterns%2Fprototype" target="_blank" >示例代码</a>

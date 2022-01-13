@@ -1,105 +1,116 @@
 ``` typescript
-// 构造器模式例子
+// 建造模式例子
 namespace Builder {
-  /** “披萨” */
-  class Pizza {
-    dough = ""; // 面团
-    sauce = ""; // 酱汁
-    topping = ""; // 调味料
+  interface UserInfo {
+    name: string;
+  }
+  
+  interface SystemInfo {
+    plateform: string;
+  }
 
-    setDough(dough: string) {
-      this.dough = dough;
+  // 接口参数
+  class ApiParams {
+    userInfo: UserInfo; // 用户信息
+    systemInfo: SystemInfo; // 系统信息
+  }
+
+  // 表单类接口参数
+  export class FormAPIParams<T> extends ApiParams {
+    formInfo: T;
+  }
+
+  /** 参数构建器 */
+  abstract class ApiParamsBuilder<T> {
+    protected apiParams: ApiParams;
+
+    constructor() {
+      this.apiParams = new ApiParams();
     }
-    setSauce(sauce: string) {
-      this.sauce = sauce;
+
+    setUserInfo() {
+      // 模拟用户信息获取
+      this.apiParams.userInfo = {
+        name: "小明",
+      };
     }
-    setTopping(topping: string) {
-      this.topping = topping;
+
+    setSystemInfo() {
+      this.apiParams.systemInfo = {
+        plateform: "windows",
+      };
+    }
+
+    // 设置外部参数
+    abstract setOuterInfo(outerInfo: T): void;
+
+    // 获取参数
+    abstract getParams(): ApiParams;
+  }
+
+  export class FormApiParamsBuilder<T> extends ApiParamsBuilder<T> {
+    formInfo: T;
+
+    protected apiParams: FormAPIParams<T>;
+
+    setOuterInfo(formInfo: T) {
+      this.apiParams.formInfo = formInfo;
+    }
+
+    getParams() {
+      return this.apiParams;
     }
   }
 
-  /** “食谱” */
-  abstract class PizzaBuilder {
-    protected pizza?: Pizza;
+  /** 主管 */
+  export class Director<T, U extends ApiParams> {
+    private apiParamsBuilder: ApiParamsBuilder<T>;
 
-    getPizza() {
-      return this.pizza;
+    setApiParamsBuilder(apiParamsBuilder: ApiParamsBuilder<T>) {
+      this.apiParamsBuilder = apiParamsBuilder;
     }
 
-    createNewPizzaProduct() {
-      this.pizza = new Pizza();
+    // 获取参数
+    getApiParams() {
+      return this.apiParamsBuilder.getParams() as U;
     }
 
-    abstract buildDough(): void;
-    abstract buildSauce(): void;
-    abstract buildTopping(): void;
-  }
-
-  /** "风味1" */
-  class HawaiianPizzaBuilder extends PizzaBuilder {
-    public buildDough() {
-      this?.pizza?.setDough("cross");
-    }
-
-    public buildSauce() {
-      this?.pizza?.setSauce("mild");
-    }
-
-    public buildTopping() {
-      this?.pizza?.setTopping("ham+pineapple");
+    // 参数构建
+    constructParams(outerInfo: T) {
+      this.apiParamsBuilder.setUserInfo();
+      this.apiParamsBuilder.setSystemInfo();
+      this.apiParamsBuilder.setOuterInfo(outerInfo);
     }
   }
-
-  /** "风味2" */
-  class SpicyPizzaBuilder extends PizzaBuilder {
-    public buildDough() {
-      this?.pizza?.setDough("pan baked");
-    }
-
-    public buildSauce() {
-      this?.pizza?.setSauce("hot");
-    }
-
-    public buildTopping() {
-      this?.pizza?.setTopping("pepperoni+salami");
-    }
-  }
-
-  /** "厨师+服务员" */
-  class Waiter {
-    private pizzaBuilder?: PizzaBuilder;
-
-    setPizzaBuilder(pb: PizzaBuilder) {
-      this.pizzaBuilder = pb;
-    }
-
-    // 服务员上菜
-    getPizza() {
-      return this?.pizzaBuilder?.getPizza();
-    }
-
-    // 厨师做菜
-    constructPizza() {
-      this?.pizzaBuilder?.createNewPizzaProduct();
-      this?.pizzaBuilder?.buildDough();
-      this?.pizzaBuilder?.buildSauce();
-      this?.pizzaBuilder?.buildTopping();
-    }
-  }
-
-  /** 客户端代码 */
-  class BuilderExample {
-    // 去吃饭
-    public static main() {
-      const waiter = new Waiter(); // 服务员打招呼
-      const hawaiian_pizzabuilder = new HawaiianPizzaBuilder(); // 用户点餐
-      waiter.setPizzaBuilder(hawaiian_pizzabuilder); // 通知后厨
-      waiter.constructPizza(); // 厨师按菜谱做菜
-
-      const pizza = waiter.getPizza(); // 服务员上菜
-    }
-  }
-
-  BuilderExample.main();
 }
+
+import Director = Builder.Director;
+import FormAPIParams = Builder.FormAPIParams;
+import FormApiParamsBuilder = Builder.FormApiParamsBuilder;
+
+interface MyFormData {
+  time: string;
+  money: number;
+}
+
+/** 业务组件如何构造参数 */
+class BuilderExample {
+  public static main() {
+    // 从组件获取的表单信息
+    const formInfo = {
+      time: "2021-1-14 00:00:00",
+      money: 100,
+    };
+    type FormInfo = typeof formInfo;
+    const director = new Director<FormInfo, FormAPIParams<FormInfo>>();
+    const formParamsBuilder = new FormApiParamsBuilder(); //新建构造器
+    director.setApiParamsBuilder(formParamsBuilder);
+    director.constructParams(formInfo); // 构建参数
+    const params = director.getApiParams(); // 获取参数
+    console.log("params", params);
+  }
+}
+
+BuilderExample.main();
+
 ```
