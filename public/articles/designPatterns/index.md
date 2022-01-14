@@ -454,19 +454,37 @@ console.log("age3", age3);
 
 ### 桥接模式 <a href="/detail/designPatterns%2Fbridge" target="_blank" >示例代码</a>
 
+#### 定义和描述
+
 > 桥接模式是软件设计模式中最复杂的模式之一，它把事物对象和其具体行为、具体特征分离开来，使它们可以各自独立的变化。
+
 > 桥接模式就是为了避免直接继承带来的子类爆炸。
 
-- 由于JavaScript中不存在类型，当然也不需要桥接模式。
+- 桥接模式的本质是**面向接口编程**
+
+#### 真实世界类比
+
+小明是游戏引擎开发者，他写的程序需要调用操作系统的很多接口。涉及到图形的部分依赖一套图形API，而不是在代码里写一大堆if else逻辑判断显卡型号然后调用对应显卡厂商提供的API。涉及到计算的部分只依赖编程语言，也不用写一大堆代码判断CPU型号。操作系统使用图形API和编程语言，给程序员提供了一套通用接口，使程序员可以**依赖接口编程**而不用关心其具体实现，这就是**桥接**。
+
+#### 类图
 
 <img src="../../images/designPatterns/Bridge.svg" width="60%">
 
 ### 组合模式 <a href="/detail/designPatterns%2Fcomposite" target="_blank" >示例代码</a>
 
-> The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies.
-> 组合模式通过把对象“组装”在树状结构之中来表示部分-整体结构
+#### 定义和描述
 
-- 让组合对象和单个对象看起来一样（使用同样的接口调用）
+> The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies.
+
+> 组合模式通过把对象“组装”在树状结构之中来表示部分-整体结构。
+
+- 使用组合模式时需要让组合对象和单个对象看起来一样（使用同样的接口调用）。
+
+#### 真实世界类比
+
+HTML中的document节点是dom，body节点也是dom，document节点的children数组包含了body节点，因此具有部分-整体结构。我们考察下document.querySelector方法的执行过程，document首先判断自身是否符合查找条件，如果不符合，找到子节点body继续调用querySelector，直到自身符合条件或children为空时返回。这里的dom就应用了**组合**模式。
+
+#### 类图
 
 <img src="../../images/designPatterns/Composite.svg" width="60%">
 
