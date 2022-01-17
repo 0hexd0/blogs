@@ -466,16 +466,16 @@ console.log("age3", age3);
 
 小明是游戏引擎开发者，他写的程序需要调用操作系统的很多接口。涉及到图形的部分依赖一套图形API，而不是在代码里写一大堆if else逻辑判断显卡型号然后调用对应显卡厂商提供的API。涉及到计算的部分只依赖编程语言，也不用写一大堆代码判断CPU型号。操作系统使用图形API和编程语言，给程序员提供了一套通用接口，使程序员可以**依赖接口编程**而不用关心其具体实现，这就是**桥接**。
 
-#### 应用场景
-
-前端微服务场景中，为了保持代码风格的统一，我们开发一个通用SDK给所有子应用调用，假设其主要包含三个部分：
-1. Web Storage，兼容cookie，web storage，子应用在初始化SDK时可以选择具体实现
-2. HTTP Client，兼容fetch和XMLHTttpRequest，子应用在初始化SDK时可以选择具体实现
-3. 通用业务能力， 比如登录/登出（支持单点登录），用户信息查询等等，子应用在初始化SDK时可以选择具体实现
-
 #### 类图
 
 <img src="../../images/designPatterns/Bridge.svg" width="60%">
+
+#### 应用场景
+
+前端微服务场景中，为了保持代码风格的统一，我们开发一个通用SDK给所有子应用调用，假设其主要包含三个部分：
+1. Web Storage，兼容cookie，web storage，子应用在初始化SDK时可以选择具体实现。
+2. HTTP Client，兼容fetch和XMLHTttpRequest，子应用在初始化SDK时可以选择具体实现。
+3. 通用业务能力， 比如登录/登出（支持单点登录），用户信息查询等等，子应用在初始化SDK时可以选择具体实现。
 
 ### 组合模式 <a href="/detail/designPatterns%2Fcomposite" target="_blank" >示例代码</a>
 
@@ -485,7 +485,7 @@ console.log("age3", age3);
 
 > 组合模式通过把对象“组装”在树状结构之中来表示部分-整体结构。
 
-- 使用组合模式时需要让组合对象和单个对象看起来一样（使用同样的接口调用）。
+- 组合模式基本上用在树状数据结构递归的场景。
 
 #### 真实世界类比
 
@@ -505,18 +505,95 @@ HTML中的document节点是dom，body节点也是dom，document节点的children
 
 ### 装饰模式 <a href="/detail/designPatterns%2Fdecorator" target="_blank" >示例代码</a>
 
-> 装饰模式，一种动态地往一个类别中添加新的行为的设计模式
+#### 定义和描述
 
-- JavaScript装饰器提案正处于草案阶段
+> 装饰模式，一种**动态**地往一个类别中添加新的行为的设计模式。
+
+#### 真实世界例子
+
+小明上班穿西装，游泳时穿泳装，睡觉时不穿衣服。这里衣服就是人的装饰。装饰
+
+#### 类图
 
 <img src="../../images/designPatterns/Decorator.svg" width="60%">
 
-#### 面向AOP编程
+#### 应用场景
+
+- 前端经常需要把后端定义的枚举值转换成含义明确的文案，此时我们可以用装饰器修饰接口请求方法。
+
+``` javascript
+const statesMapper = {
+  0: '关闭',
+  1: '开启'
+}
+
+// 对应装饰器class
+const statesNameDecorator = (api) => {
+  return (args) => api(args).then(
+    list => {
+      return list.map(item => {
+        return {
+          ...item,
+          statesName: statesMapper[item.states]
+        }
+      })
+    }
+  )
+}
+
+// 原始方法
+const getDoorStatus = () => {
+  return Promise.resolve(
+    [
+      {
+        name: '5号门',
+        states: 0
+      },
+      {
+        name: '6号门',
+        states: 1
+      }
+    ]
+  )
+}
+
+// 装饰器实例getDoorStatusWithName和getDoorStatus具有相同的函数签名
+const getDoorStatusWithName = statesNameDecorator(getDoorStatus)
+
+getDoorStatusWithName().then(
+  res => {
+    console.log(res)
+  }
+)
+```
+
+### 代理模式 <a href="/detail/designPatterns%2Fproxy" target="_blank" >示例代码</a>
+
+#### 定义和描述
+
+> a proxy is a wrapper or agent object that is being called by the client to access the real serving object behind the scenes. Use of the proxy can simply be forwarding to the real object, or can provide additional logic.
+
+#### 真实世界例子
+
+小丽是个演员，但她不太懂炒热度、买热搜这些商业活动，好在演艺公司给她分配了经纪人，帮她**代理**这些**和主业无关的**事情，于是小丽得以**专注**在演艺事业上。
+
+#### 类图
+
+<img src="../../images/designPatterns/Proxy.svg" width="60%">
 
 #### 应用场景
 
+- Vue中的所有响应式数据都是代理。
+
+### 装饰模式和代理模式的比较
+
+- 两者的实现方式类似，能做的事情也类似，原始对象和强化对象继承同一个接口。
+- 从类图看，代理模式中Proxy和RealSubject之间是关联关系，并没有指明是依赖关联、聚合关联和组合关联中的哪一种，实现起来比较自由。装饰模式中Decorator和Component之间是聚合关系，即组件是装饰器的一部分，装饰器有一个成员变量是对组件的引用。也就是说，装饰器比代理更依赖原始对象，更适用于对原始对象做更多控制的场景，而代理模式更适用于那些与原始对象关联较小的场景。
+- 代理适合更抽象的通用场景，装饰器适合具体的业务场景。
 
 ### 外观模式 <a href="/detail/designPatterns%2Ffacade" target="_blank" >示例代码</a>
+
+#### 定义和描述
 
 > 外观模为为子系统中的一组界面提供一个统一的高层界面，使得子系统更容易使用。
 
@@ -524,21 +601,13 @@ HTML中的document节点是dom，body节点也是dom，document节点的children
 
 小明决定使用中通快递来邮寄一本书，整个邮寄过程需要快递公司各个子系统的协作才能完成，小明不可能和所有子系统交互，他只需要在官网下单就好了。中通官网就是整个快递公司的**外观**。
 
-- 外观模式
+#### 类图
 
 <img src="../../images/designPatterns/Facade.svg" width="60%">
 
 ### 享元模式 <a href="/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
 
 > 通常物件中的部分状态(state)能够共享。常见做法是把它们放在数据结构外部，当需要使用时再将它们传递给享元。
-
-#### vuex是否应用了享元模式？
-
-### 代理模式 <a href="/detail/designPatterns%2Fproxy" target="_blank" >示例代码</a>
-
-> a proxy is a wrapper or agent object that is being called by the client to access the real serving object behind the scenes. Use of the proxy can simply be forwarding to the real object, or can provide additional logic.
-
-<img src="../../images/designPatterns/Proxy.svg" width="60%">
 
 ## 行为型模式
 
