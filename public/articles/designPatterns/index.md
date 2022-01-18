@@ -519,7 +519,7 @@ HTML中的document节点是dom，body节点也是dom，document节点的children
 
 #### 应用场景
 
-- 前端经常需要把后端定义的枚举值转换成含义明确的文案，此时我们可以用装饰器修饰接口请求方法。
+- 前端经常需要把后端定义的枚举值转换成含义明确的文案，此时我们可以用装饰器强化接口。
 
 ``` javascript
 const statesMapper = {
@@ -527,7 +527,7 @@ const statesMapper = {
   1: '开启'
 }
 
-// 对应装饰器class
+// 装饰器
 const statesNameDecorator = (api) => {
   return (args) => api(args).then(
     list => {
