@@ -575,7 +575,7 @@ getDoorStatusWithName().then(
 
 #### 真实世界例子
 
-小丽是个演员，但她不太懂炒热度、买热搜这些商业活动，好在演艺公司给她分配了经纪人，帮她**代理**这些**和主业无关的**事情，于是小丽得以**专注**在演艺事业上。
+小丽是个演员，但她不太懂炒热度、买热搜这些商业活动，好在演艺公司给她分配了经纪人，帮她**代理**这些和主业无关的事情，于是小丽得以**专注**在演艺事业上。
 
 #### 类图
 
@@ -583,7 +583,57 @@ getDoorStatusWithName().then(
 
 #### 应用场景
 
-- Vue中的所有响应式数据都是代理。
+- 访问控制：执行某个方法前进行权限/条件判断。
+- 缓存接口：经过代理的接口使用缓存代替重新请求。
+
+``` javascript
+const cacheData = new WeakMap()
+
+const cacheApiProxyCreator = (api) => {
+  return async (args) => {
+    if (!cacheData.has(api)) {
+      const res = await api(args)
+      cacheData.set(api, res)
+    }
+    return Promise.resolve(cacheData.get(api))
+  }
+}
+
+const getRemoteUserInfo = () => {
+  console.log('请求了远程用户信息接口')
+  return Promise.resolve({
+    name: '小明',
+    age: 18
+  })
+}
+
+const getRemoteUserPermission = () => {
+  console.log('请求了远程用户权限接口')
+  return Promise.resolve(['query_order', 'del_order'])
+}
+
+const getUserInfoCacheProxy = cacheApiProxyCreator(getRemoteUserInfo)
+const getUserPermissionCacheProxy = cacheApiProxyCreator(getRemoteUserPermission)
+
+function getUserInfo() {
+  getUserInfoCacheProxy().then(
+    res => {
+      console.log(res)
+    }
+  )
+  getUserPermissionCacheProxy().then(
+    res => {
+      console.log(res)
+    }
+  )
+}
+
+getUserInfo()
+
+setTimeout(getUserInfo, 1000)
+
+setTimeout(getUserInfo, 2000)
+```
 
 ### 装饰模式和代理模式的比较
 
@@ -604,6 +654,8 @@ getDoorStatusWithName().then(
 #### 类图
 
 <img src="../../images/designPatterns/Facade.svg" width="60%">
+
+#### 应用场景
 
 ### 享元模式 <a href="/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
 
