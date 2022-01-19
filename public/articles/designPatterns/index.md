@@ -660,12 +660,16 @@ setTimeout(getUserInfo, 2000)
 
 #### 应用场景
 
-- 兼容性场景：封装一个HTTP客户端，具有get和post两个方法，
+- 兼容性场景：封装一个HTTP客户端，具有get和post两个方法，首先使用fetch和XMLHttpRequest分别实现两套接口，最后在外观接口内进行环境能力检测，实现优雅降级。
 
 ### 享元模式 <a href="/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
 
+#### 定义和描述
+
 > 通常物件中的部分状态(state)能够共享。常见做法是把它们放在数据结构外部，当需要使用时再将它们传递给享元。
 
+- 一般使用单例模式构造享元。
+  
 ## 行为型模式
 
 > 行为模式负责对象间的高效沟通和职责委派。
