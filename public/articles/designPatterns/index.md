@@ -666,7 +666,7 @@ setTimeout(getUserInfo, 2000)
 
 #### 定义和描述
 
-> 通常物件中的部分状态(state)能够共享。常见做法是把它们放在数据结构外部，当需要使用时再将它们传递给享元。
+> The flyweight pattern is useful when dealing with large numbers of objects with simple repeated elements that would use a large amount of memory if individually stored. It is common to hold shared data in external data structures and pass it to the objects temporarily when they are used.
 
 - 当我们将几个对象的公用状态提取成单个对象时我们就是在使用享元模式。
   
@@ -675,6 +675,8 @@ setTimeout(getUserInfo, 2000)
 - 可以结合工厂模式实现享元池：工厂会根据参数在之前已创建的享元中进行查找，如果找到满足条件的享元就将其返回，如果没有找到就根据参数新建享元。
 
 #### 应用场景
+
+- 海量数据存储：假设我们渲染一个下雪的场景，需要渲染50w个雪花。假设每个雪花对象有颜色，形状，缩放倍率，位置属性。假设颜色，形状，缩放率在飘落的过程中是不变的，我们可以使用享元池来分离这三者，假设这三条数据总共1KB，那么我们可以节省约500M的内存空间。
   
 ## 行为型模式
 
