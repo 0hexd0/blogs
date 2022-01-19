@@ -583,8 +583,9 @@ getDoorStatusWithName().then(
 
 #### 应用场景
 
+- HTTP拦截：在发送和接收HTTP请求时拦截，比如Axios的拦截器。
 - 访问控制：执行某个方法前进行权限/条件判断。
-- 缓存接口：经过代理的接口使用缓存代替重新请求。
+- 缓存接口：经过代理的接口使用缓存代替重新请求。。
 
 ``` javascript
 const cacheData = new WeakMap()
@@ -647,6 +648,8 @@ setTimeout(getUserInfo, 2000)
 
 > 外观模为为子系统中的一组界面提供一个统一的高层界面，使得子系统更容易使用。
 
+- 外观模式的本质是封装，用胶水代码粘合其他功能模块，从而提供简明易用的接口。
+
 #### 真实世界类比
 
 小明决定使用中通快递来邮寄一本书，整个邮寄过程需要快递公司各个子系统的协作才能完成，小明不可能和所有子系统交互，他只需要在官网下单就好了。中通官网就是整个快递公司的**外观**。
@@ -656,6 +659,8 @@ setTimeout(getUserInfo, 2000)
 <img src="../../images/designPatterns/Facade.svg" width="60%">
 
 #### 应用场景
+
+- 兼容性场景：封装一个HTTP客户端，具有get和post两个方法，
 
 ### 享元模式 <a href="/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
 
