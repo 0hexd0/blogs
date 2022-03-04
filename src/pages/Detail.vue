@@ -32,7 +32,7 @@ let headList: any = [];
 renderer.heading = function (text, level, raw) {
   if (level < 4) {
     const anchor = headList.push({
-      text: text.replaceAll(/<a href(.*)\/a>/g, ""),
+      text: text.replace(/<a href(.*)\/a>/g, ""),
       level,
       anchor: 0,
     });
