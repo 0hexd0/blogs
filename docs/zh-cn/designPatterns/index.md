@@ -32,7 +32,7 @@
 - 在**只新增代码，不修改原代码**的情况下增加新的功能
 - **面向接口编程**是个好主意
 
-``` TypeScript
+```typescript
 // 我会飞
 interface ICanFly {
     void fly(); // 必须具有fly方法，这是约定...
@@ -78,7 +78,7 @@ class Space implements ICanFly {
 
 - 接口要尽可能的拆分，避免胖接口
 
-```TypeScript
+```typescript
 // 胖接口
 interface IBird {
     void fly();
@@ -103,7 +103,7 @@ interface IAlive {
 
 <img src="../../images/designPatterns/Dependency_inversion.png" width="60%">
 
-### 依赖注入 <a href="/detail/designPatterns%2Fioc" target="_blank" >示例代码</a>
+### 依赖注入 <a href="/zh-cn/designPatterns/ioc" target="_blank" >示例代码</a>
 
 > 依赖注入形式下，调用方不再直接使用**依赖**，取而代之是**注入** 。**注入**是指将**依赖**传递给调用方的过程。在**注入**之后，调用方才会调用该**依赖**。
 
@@ -135,7 +135,7 @@ render: function (createElement) {
 }
 ```
 
-### 工厂方法 <a href="/detail/designPatterns%2Ffactory" target="_blank" >示例代码</a>
+### 工厂方法 <a href="/zh-cn/designPatterns/factory" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -156,7 +156,7 @@ render: function (createElement) {
 - 当我们用不同的参数生成不同的对象，我们就是在使用**简单工厂**
 - 考虑较复杂的一个场景，我们希望统一整个项目的对话框。对话框目前有两种：信息对话框和表单对话框。信息对话框只要展示提示信息，表单对话框展示表单组件。这时可以考虑工厂方法。
 
-``` TypeScript
+```typescript
 interface VueComponent {}
 
 enum MessageDialogType {
@@ -241,7 +241,7 @@ function render(createElement) {
 }
 ```
 
-### 抽象工厂 <a href="/detail/designPatterns%2FabstractFactory" target="_blank" >示例代码</a>
+### 抽象工厂 <a href="/zh-cn/designPatterns/abstractFactory" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -259,7 +259,7 @@ function render(createElement) {
 
 现在要用8套设计和交互规范实现切换皮肤功能，某些可以通过修改CSS直接实现，但有些组件交互逻辑完全不同。此时可以用抽象工厂模式。
 
-### 建造模式 <a href="/detail/designPatterns%2Fbuilder" target="_blank" >示例代码</a>
+### 建造模式 <a href="/zh-cn/designPatterns/builder" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -282,7 +282,7 @@ function render(createElement) {
 - Factory的methods之间通常没有关联；Builder的methods可能同属于某个产品的构建过程。
 - 建造模式多了Director角色，令其控制组装过程；抽象工厂的产品往往在客户端被组装。
 
-### 原型模式 <a href="/detail/designPatterns%2Fprototype" target="_blank" >示例代码</a>
+### 原型模式 <a href="/zh-cn/designPatterns/prototype" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -296,7 +296,7 @@ function render(createElement) {
 
 <img src="../../images/designPatterns/Prototype.svg" width="60%">
 
-### 单例模式 <a href="/detail/designPatterns%2Fsingleton" target="_blank" >示例代码</a>
+### 单例模式 <a href="/zh-cn/designPatterns/singleton" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -332,10 +332,14 @@ myApp.createLoginLayer = (function () {
 
 - 如果某些接口只被调用一次（比如用户信息、菜单、配置项），可以结合Promise封装一些惰性且带缓存的接口
   
-``` TypeScript
+```typescript
+async function getUserInfo() {
+  const userInfo = await getPermissions()
+  console.log('userInfo', userInfo)
+}
 namespace DisposableApis {
   let permissions: [] | null = null;
-  export async function getPermissions() {
+  async function getPermissions() {
     if (!permissions) {
       const res = await fetch('https://***.com/user', {
         credentials: "include",
@@ -347,17 +351,7 @@ namespace DisposableApis {
     }
   };
 }
-
-function getUserInfo() {
-  DisposableApis.getPermissions().then(
-    userInfo => {
-      console.log('userInfo', userInfo)
-    }
-  )
-}
-
 getUserInfo()
-
 setTimeout(
   getUserInfo, 1000
 )
@@ -375,7 +369,7 @@ setTimeout(
 
 > 结构型模式主要总结了一些类或对象组合在一起的经典结构，这些经典的结构可以解决特定应用场景的问题。
 
-### 适配器模式 <a href="/detail/designPatterns%2Fadapter" target="_blank" >示例代码</a>
+### 适配器模式 <a href="/zh-cn/designPatterns/adapter" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -452,7 +446,7 @@ console.log("age3", age3);
 
 - 还记得之前提到的建造模式吗？之前把参数构建的过程委托给Director类了，不过这样构造出来的参数具有固定的几种格式。即使我们在项目早期做了约定（比如：所有接口按固定格式传参），也还是会有一些接口的参数格式“不合群”。适配器模式可以优雅的解决这个问题：相比于业务代码里构造新参数，适配器可以把参数构造的过程解耦出来，如果以后接口参数再变动，我们完全不用关心业务代码，只需要修改适配器代码。
 
-### 桥接模式 <a href="/detail/designPatterns%2Fbridge" target="_blank" >示例代码</a>
+### 桥接模式 <a href="/zh-cn/designPatterns/bridge" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -477,7 +471,7 @@ console.log("age3", age3);
 2. HTTP Client，兼容fetch和XMLHTttpRequest，子应用在初始化SDK时可以选择具体实现。
 3. 通用业务能力， 比如登录/登出（支持单点登录），用户信息查询等等，子应用在初始化SDK时可以选择具体实现。
 
-### 组合模式 <a href="/detail/designPatterns%2Fcomposite" target="_blank" >示例代码</a>
+### 组合模式 <a href="/zh-cn/designPatterns/composite" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -503,7 +497,7 @@ HTML中的document节点是dom，body节点也是dom，document节点的children
 - 表单校验功能，客户端只需执行表单的校验方法，该方法内部遍历校验所有表单项。
 - 设计一个无层数限制，折叠展示的树状组件，父组件的toggle方法只需调用子组件的toggle，最终在叶子节点实现真正的toggle逻辑。
 
-### 装饰模式 <a href="/detail/designPatterns%2Fdecorator" target="_blank" >示例代码</a>
+### 装饰模式 <a href="/zh-cn/designPatterns/decorator" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -567,7 +561,7 @@ getDoorStatusWithName().then(
 )
 ```
 
-### 代理模式 <a href="/detail/designPatterns%2Fproxy" target="_blank" >示例代码</a>
+### 代理模式 <a href="/zh-cn/designPatterns/proxy" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -642,7 +636,7 @@ setTimeout(getUserInfo, 2000)
 - 从类图看，代理模式中Proxy和RealSubject之间是关联关系，并没有指明是依赖关联、聚合关联和组合关联中的哪一种，实现起来比较自由。装饰模式中Decorator和Component之间是聚合关系，即组件是装饰器的一部分，装饰器有一个成员变量是对组件的引用。也就是说，装饰器比代理更依赖原始对象，更适用于对原始对象做更多控制的场景，而代理模式更适用于那些与原始对象关联较小的场景。
 - 代理适合更抽象的通用场景，装饰器适合具体的业务场景。
 
-### 外观模式 <a href="/detail/designPatterns%2Ffacade" target="_blank" >示例代码</a>
+### 外观模式 <a href="/zh-cn/designPatterns/facade" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -662,7 +656,7 @@ setTimeout(getUserInfo, 2000)
 
 - 兼容性场景：封装一个HTTP客户端，具有get和post两个方法，首先使用fetch和XMLHttpRequest分别实现两套接口，最后在外观接口内进行环境能力检测，实现优雅降级。
 
-### 享元模式 <a href="/detail/designPatterns%2Fflyweight" target="_blank" >示例代码</a>
+### 享元模式 <a href="/zh-cn/designPatterns/flyweight" target="_blank" >示例代码</a>
 
 #### 定义和描述
 
@@ -684,13 +678,13 @@ setTimeout(getUserInfo, 2000)
 
 > 行为型设计模式主要解决的就是“类或对象之间的交互”问题。
 
-### 责任链模式 <a href="/detail/designPatterns%2FchainOfResponsibility" target="_blank" >示例代码</a>
+### 责任链模式 <a href="/zh-cn/designPatterns/chainOfResponsibility" target="_blank" >示例代码</a>
 
 > 责任链包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。该模式还描述了往该处理链的末尾添加新的处理对象的方法。
 
 <img src="../../images/designPatterns/Chain_of_Responsibility.jpg" width="60%">
 
-### 命令模式 <a href="/detail/designPatterns%2Fcommand" target="_blank" >示例代码</a>
+### 命令模式 <a href="/zh-cn/designPatterns/command" target="_blank" >示例代码</a>
 
 > the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time.
 
@@ -698,23 +692,23 @@ setTimeout(getUserInfo, 2000)
 
 > 指定如何对某种语言中的表达式求值
 
-### 迭代器模式 <a href="/detail/designPatterns%2Fiterator" target="_blank" >示例代码</a>
+### 迭代器模式 <a href="/zh-cn/designPatterns/iterator" target="_blank" >示例代码</a>
 
 > 可以让用户透过特定的接口轮流访问容器中的每一个元素而不用了解底层的实现
 
 - javascript迭代器与生成器
 
-### 中介者模式 <a href="/detail/designPatterns%2Fmediator" target="_blank" >示例代码</a>
+### 中介者模式 <a href="/zh-cn/designPatterns/mediator" target="_blank" >示例代码</a>
 
 > 中介者模式定义了一个中介者对象，该对象封装了系统中对象间的交互方式。 由于它可以在运行时改变程序的行为
 
-### 备忘录模式 <a href="/detail/designPatterns%2Fmemento" target="_blank" >示例代码</a>
+### 备忘录模式 <a href="/zh-cn/designPatterns/memento" target="_blank" >示例代码</a>
 
 > The memento pattern is a software design pattern that provides the ability to restore an object to its previous state.
 
 - 备忘录模式是一种用空间换时间的常用手段
 
-### 观察者模式 <a href="/detail/designPatterns%2Fobserver" target="_blank" >示例代码</a>
+### 观察者模式 <a href="/zh-cn/designPatterns/observer" target="_blank" >示例代码</a>
 
 > 在此种模式中，一个目标对象管理所有相依于它的观察者对象，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。
 
@@ -722,21 +716,21 @@ setTimeout(getUserInfo, 2000)
 
 - 发布订阅模式通过新增事件中心，避免了目标和观察者互相耦合
 
-### 状态机模式 <a href="/detail/designPatterns%2Fstate" target="_blank" >示例代码</a>
+### 状态机模式 <a href="/zh-cn/designPatterns/state" target="_blank" >示例代码</a>
 
 > The state pattern is a behavioral software design pattern that allows an object to alter its behavior when its internal state changes.
 
 - 把状态封装在调用对象之中，通过修改对象状态改变方法的行为
 
-### 策略模式 <a href="/detail/designPatterns%2Fstrategy" target="_blank" >示例代码</a>
+### 策略模式 <a href="/zh-cn/designPatterns/strategy" target="_blank" >示例代码</a>
 
 > the strategy pattern (also known as the policy pattern) is a behavioral software design pattern that enables selecting an algorithm at runtime.
 
-### 模板方法 <a href="/detail/designPatterns%2Ftemplate" target="_blank" >示例代码</a>
+### 模板方法 <a href="/zh-cn/designPatterns/template" target="_blank" >示例代码</a>
 
 > 模板方法是一个定义在父类别的方法，在模板方法中会呼叫多个定义在父类别的其他方法，而这些方法有可能只是抽象方法并没有实作，模板方法仅决定这些抽象方法的执行顺序，这些抽象方法的实作由子类别负责，并且子类别不允许覆写模板方法。
 
-### 访问者模式 <a href="/detail/designPatterns%2Fvisitor" target="_blank" >示例代码</a>
+### 访问者模式 <a href="/zh-cn/designPatterns/visitor" target="_blank" >示例代码</a>
 
 > 首先我们拥有一个由许多对象构成的对象结构，这些对象的类都拥有一个accept方法用来接受访问者对象；访问者是一个接口，它拥有一个visit方法，这个方法对访问到的对象结构中不同类型的元素作出不同的反应；在对象结构的一次访问过程中，我们遍历整个对象结构，对每一个元素都实施accept方法，在每一个元素的accept方法中回调访问者的visit方法，从而使访问者得以处理对象结构的每一个元素。
 
